@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'usermanagement-risus.cnna5vf2pbcc.eu-north-1.rds.amazonaws.com',
+    'hostname' => 'risus-usermanagment.cnna5vf2pbcc.eu-north-1.rds.amazonaws.com',
     'username' => 'admin',
-    'password' => 'password',
+    'password' => 'CSO7YR55N3sNoH2e05TvcVbT3KlYws',
     'database' => 'usermanagement',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
