@@ -1,0 +1,211 @@
+Received: from MAXPR01MB2895.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:4a::20)
+ by BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM with HTTPS; Wed, 2 Feb 2022
+ 11:58:54 +0000
+Received: from PN2PR01CA0116.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:27::31)
+ by MAXPR01MB2895.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:4a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4930.20; Wed, 2 Feb
+ 2022 11:58:53 +0000
+Received: from BMXIND01FT023.eop-IND01.prod.protection.outlook.com
+ (2603:1096:c01:27:cafe::9) by PN2PR01CA0116.outlook.office365.com
+ (2603:1096:c01:27::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4951.12 via Frontend
+ Transport; Wed, 2 Feb 2022 11:58:53 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.216.52)
+ smtp.mailfrom=tvssbl.com; dkim=pass (signature was verified)
+ header.d=tvssbl.com;dmarc=bestguesspass action=none
+ header.from=tvssbl.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of tvssbl.com designates
+ 209.85.216.52 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.216.52; helo=mail-pj1-f52.google.com;
+Received: from mail-pj1-f52.google.com (209.85.216.52) by
+ BMXIND01FT023.mail.protection.outlook.com (10.13.170.122) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4951.12 via Frontend Transport; Wed, 2 Feb 2022 11:58:52 +0000
+Received: by mail-pj1-f52.google.com with SMTP id r59so20018296pjg.4
+        for <sg@risusventures.com>; Wed, 02 Feb 2022 03:58:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tvssbl.com; s=google;
+        h=from:subject:to:cc:message-id:date:user-agent:mime-version
+         :content-language;
+        bh=OQJ0Qlc4LGlC9eX3z1udL4GVZyrPaiLnEVbxzhDWRsc=;
+        b=bmlybl9H2vI/5GN1B0gaUFcwUQXl6c0CgegILNzCbLezaftZr8WEchoUxccG7hbGg8
+         WngyYR+1qXm9w4VfGiK3dsG6k8ywLXciUSVF8YRviVy43KxuAUvIbeHW/ks9o9vFUiKw
+         QC21NiG6uSbCd4OrpGkWCbtoImJsfJF15totA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:subject:to:cc:message-id:date:user-agent
+         :mime-version:content-language;
+        bh=OQJ0Qlc4LGlC9eX3z1udL4GVZyrPaiLnEVbxzhDWRsc=;
+        b=X4F/K7OezykfYgc76HIiKtXfS+8hgW6iEW6GS2KpL/9/sS5MfHENcthSqIgYdhBHLm
+         n/2UUqj9eRFDH14A0ByMLj0O/MXOn2Dw/f94/YhprX7k7u8diO4ojybR8R8fChW5rPe6
+         zndXDPXXT3WEXBUUCT2CHhHwOpk6hLFkqL2uhD762NdtJLdlcyYU2Xm0ZwIsAFiab2v/
+         KECmb5zW8Ryb0cb3kf//y+4iSs3yyjYTGk7y8A7oAOfLqh9NWCXRMaKokeA4PgzKDPb3
+         cgLBZoQ27veuFO8l1/qkSUGJ+yPHBgOvdWK435qlUtpYkVqoWoLwyzm9v0JkGM4A3NPQ
+         42zA==
+X-Gm-Message-State: AOAM530QYXTXxHewf7BMDEAl874Ig022iMEOH6ov2vSCdRyyJbRKxT86
+	Zktcp9rFbZeLKrN+AKXoyEF9fvgf1cnkhb8tqR8cDmCe/nBCH5DqjDYbFRWBUyVqp3G9O4RyDmb
+	6ESzZVV8=
+X-Google-Smtp-Source: ABdhPJx38q+6QaG3zoKKRYyYGhyXAnJTS9xfa6ns+doBdCyc8KkIavJUpvGpXPlqCtceSrsSInKBsg==
+X-Received: by 2002:a17:90a:2fc5:: with SMTP id n5mr7606750pjm.67.1643803130488;
+        Wed, 02 Feb 2022 03:58:50 -0800 (PST)
+Return-Path: imports@tvssbl.com
+Received: from [127.0.0.1] ([106.51.99.6])
+        by smtp.gmail.com with ESMTPSA id m21sm26344264pfk.26.2022.02.02.03.58.48
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Feb 2022 03:58:49 -0800 (PST)
+From: Imports <imports@tvssbl.com>
+Subject: New schedule for Lapinus to TSK Plant 2 - Regarding
+To: Shishir Gupta <sg@risusventures.com>,
+ "mike.palmen@lapinus.com" <mike.palmen@lapinus.com>
+Cc: Sridhar R <rs@tvssbl.com>
+Message-ID: <4fe90194-e89f-679d-a8c2-843e1db4a6b0@tvssbl.com>
+Date: Wed, 2 Feb 2022 17:28:47 +0530
+User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
+MIME-Version: 1.0
+Content-Language: en-US
+X-MS-Exchange-Organization-ExpirationStartTime: 02 Feb 2022 11:58:53.0150
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ a28081b6-1ccf-4091-07bd-08d9e64361f3
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e434ffe4-3895-4b53-a704-9da6180d3438:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ BMXIND01FT023.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: a28081b6-1ccf-4091-07bd-08d9e64361f3
+X-MS-TrafficTypeDiagnostic: MAXPR01MB2895:EE_
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:209.85.216.52;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:SFE;H:mail-pj1-f52.google.com;PTR:mail-pj1-f52.google.com;CAT:NONE;SFS:;DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2022 11:58:52.7806
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a28081b6-1ccf-4091-07bd-08d9e64361f3
+X-MS-Exchange-CrossTenant-Id: e434ffe4-3895-4b53-a704-9da6180d3438
+X-MS-Exchange-CrossTenant-AuthSource:
+ BMXIND01FT023.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAXPR01MB2895
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.4406833
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.4951.012
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:1;ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506458)(944626604)(920097)(820001)(250001)(410001)(930097);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?dODo2ne8HP8GWoIgelXrNYwNr0Hv2inVMoUAfOAsYF6pKvrd7Y5ksOG9pksc?=
+ =?us-ascii?Q?IW1F+G/SJ5Tf9uJCRmCV5cabG6sKv4BMaoe+KPzKY+NDW8qg9ia4Qjw9VF+s?=
+ =?us-ascii?Q?PesJ2UG9VVCLqUCZWliWyqNyeLmV4oFOhya/C7wQEZ/WiT7us0A5TfVE9ipi?=
+ =?us-ascii?Q?Fe8PDfdgoUd+V5BhqxPomdhX/jn/hU+wVXuPTsEPTfCyYkqhy38rBMS0cJ8e?=
+ =?us-ascii?Q?AblQ/GWnoRv+Q7Wb22/9nMchsXKCN6xkyG4nkRwiAsbSKYyu5nMuV/sVuKML?=
+ =?us-ascii?Q?zpfHZERwdthW+cioRg0LIYAt+VW2cyQx9gpZ1OyYVWoA7IiN+5ooCUM7MLrr?=
+ =?us-ascii?Q?HQjSsVTGM/LdyArEsVWryfafk3ZcSquYoFWxDkq2aqnyktOCzWvt8Z6OctPd?=
+ =?us-ascii?Q?NWYX+j8FfnA2GF8I52W9VkXmD/qj2CiV2g0zDbOZwRoBCj5rTlQKS9R/17gb?=
+ =?us-ascii?Q?pJDixC/jSwJWilJl/a4YkoBoodq1+zHT+emoax4VvE97SwxYDTjWd9MYdws8?=
+ =?us-ascii?Q?zoTJjL2FO9A0l4UTpmuYTePc7h72EulA0UDt7XnkDRYztEXdvDtOhXJFa8a8?=
+ =?us-ascii?Q?2XmaEAuCGmaglBl0Wi42lSpYtcoMLEYUj0R+Fp+rk1YSrikbA13oJjJJZcK9?=
+ =?us-ascii?Q?Ta3NIVW35c7IwR2BDcVo6nGM4p9Cvrn8h3K8NuCs/28J8MJR5bp1G+HBT0+H?=
+ =?us-ascii?Q?tmcIyCDnJ05CEPmpMkdTewMG+/AAwzbpGQ6uxE4mREnXHqESdmY3YEVg6nkq?=
+ =?us-ascii?Q?IvfPlSOB1K6GLxsTNrdugwDDloqaSORiQxB4G+dYKzV6QB+VOgDHPX0XgiHe?=
+ =?us-ascii?Q?mo7YGv5c5EpJ0XgZLHcgZPHa0ZmPPzI3ujjnOQMXGsbKRrMAmE4ZiAdhAEBo?=
+ =?us-ascii?Q?z0U24r7zG5lqSuDhi2eG9qXw6xykq8s6MrdTuE/byL/HhW8JGyGw3BFh8HAk?=
+ =?us-ascii?Q?GNHLP5akDnlkIGLRW+8qSH9PRn4FO3DT8u/dUkJFd7zaI9WGuV0iP497Bk4G?=
+ =?us-ascii?Q?Gj7+h5s2UKbRAE8auDonnGStr2pAL7sojck9aorg0s6WanqB3UWFrLUWTwHY?=
+ =?us-ascii?Q?XpHpTYr7s7EUfN7dra+D/JiFyte3iQyoOVes/74aKtorLy3uBOPTuVdJXe3Z?=
+ =?us-ascii?Q?rAU3jmH5benwFUhFXm19jpTD6K3LSRSMNA86b5pXK+35gp7tqvOvEcve4Xu3?=
+ =?us-ascii?Q?eNwbLaeALBjcsIsRK0iJoWb7lxDPJrm4Mhr5wj4K7R3Iw69Br91O6JO2iWb7?=
+ =?us-ascii?Q?ce+XoTBldMCJOkezzKng7wjXYY6D/zXLFxKqRVQZqNgp97gf8h4VEZ8T7YNN?=
+ =?us-ascii?Q?/AFlICCe0dR3yyrti6ZZxYeffHFq0iPpKEjkdg58K3v8FAy6vQjI5vQuj3zs?=
+ =?us-ascii?Q?QbAIFdD97mLqIiwNRWIXtgM00yG07WLOKyybgfXnVAkfV96nHO9+0cfZt79+?=
+ =?us-ascii?Q?HTn8cINS3/m61P1pbX7Lz2lthXLR6qeY3K31fQJ28GzvLD+MnVkOWak5uMi5?=
+ =?us-ascii?Q?mwfXaRAFB9G36j+cp+cTcmzISjGyGJD6DmsK3/dk2qoNd2WCo69/HOzjhNvq?=
+ =?us-ascii?Q?KXkHNubw5BUC9SJ/fyX3zQ30ZGozbCz+ifaWhCIoAnhqe+4zZjdSrOMmKk9B?=
+ =?us-ascii?Q?e/w9MMwck+2r77AkpWqabjeXNL8Izyik47CPt7UNpEUwkF7igcSylnOzUyCm?=
+ =?us-ascii?Q?OQsqJfsbJMKH1GiNszL/iPB5vSIAHNXCrcHimH6bXzjTKoKG0I5eg/H2/3rh?=
+ =?us-ascii?Q?clEUV11/4Q=3D=3D?=
+Content-type: multipart/alternative;
+	boundary="B_3726848519_1633133171"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3726848519_1633133171
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: 7bit
+
+Dear sir, 
+
+Greetings of the day. 
+
+We are releasing our new schedule for our TSK Plant 2 (Ex-Works).
+
+SALM 0381 [RB220] -   8,800 Kg (22 pallets)
+
+SALM 0420 [RB250] - 11,250 Kg (18 pallets)
+
+TOTAL                   - 20,050 Kgs (40 pallets)  
+
+Kindly note if you can load 42 pallets in a 40 ft container then we request you to add one pallet each in both the materials.
+
+
+ETD required - Before 05 Mar 2022. 
+
+TSK-Plant 2 address :
+
+Sundaram Brake Linings Limited, 
+TSK Puram Plant 2 
+Kanjamanaickenpatti, 
+Mustakurichi P.O. 
+Virudhunagar District - 626106 
+
+
+Kindly acknowledge the receipt of our schedule. 
+
+
+Thanking you, 
+
+Vivithraj 
+
+Sundaram Brake Linings Limited - The information contained in this communication may be confidential, is intended only for the use of the recipient named above or if improperly named, the intended recipient, and may be legally privileged. If the reader of this message is not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this communication, or any of its contents, is strictly prohibited. If you have received this communication in error, please re-send this communication to the sender and delete the original message and any copy of it from your computer system
+
+--B_3726848519_1633133171
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></head><=
+body text=3D"#000000" bgcolor=3D"#FFFFFF"><p>Dear sir, <br><br>Greetings of the =
+day. <br><br>We are releasing our new schedule for our TSK Plant 2 (Ex-Works=
+).</p><p><b><font color=3D"#000099">SALM 0381 [RB220] -&nbsp;&nbsp; 8,800 Kg (=
+22 pallets)<br></font></b></p><p><b><font color=3D"#000099">SALM 0420 [RB250] =
+- 11,250 Kg (18 pallets)</font></b></p><p><font size=3D"+1" color=3D"#006600"><b=
+>TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - 20,0=
+50 Kgs (40 pallets)</b></font>&nbsp; <br></p><p>Kindly note if you can load =
+42 pallets in a 40 ft container then we request you to add one pallet each i=
+n both the materials.</p><p><br><u><b>ETD required - Before 05 Mar 2022.</b>=
+</u> <br><br>TSK-Plant 2 address :<br><br>Sundaram Brake Linings Limited, <b=
+r>TSK Puram Plant 2 <br>Kanjamanaickenpatti, <br>Mustakurichi P.O. <br>Virud=
+hunagar District - 626106 <br><br><br>Kindly acknowledge the receipt of our =
+schedule. <br><br><br>Thanking you, <br><br>Vivithraj <br></p><br><font face=
+=3D"Arial, Helvetica, sans-serif"><span style=3D"font-size:13px">Sundaram Brake =
+Linings Limited - The information contained in this communication may be con=
+fidential, is intended only for the use of the recipient named above or if i=
+mproperly named, the intended recipient, and may be legally privileged. If t=
+he reader of this message is not the intended recipient, you are hereby noti=
+fied that any dissemination, distribution, or copying of this communication,=
+ or any of its contents, is strictly prohibited. If you have received this c=
+ommunication in error, please re-send this communication to the sender and d=
+elete the original message and any copy of it from your computer system</spa=
+n></font></body></html>
+
+--B_3726848519_1633133171--
+

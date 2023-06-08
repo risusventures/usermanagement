@@ -1,0 +1,731 @@
+Received: from PN1PR01MB1071.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:7::7) by
+ BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM with HTTPS; Thu, 28 Apr 2022 09:42:24
+ +0000
+Received: from BM1PR01CA0161.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:68::31)
+ by PN1PR01MB1071.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:7::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.14; Thu, 28 Apr
+ 2022 09:42:23 +0000
+Received: from MA1IND01FT011.eop-IND01.prod.protection.outlook.com
+ (2603:1096:b00:68:cafe::50) by BM1PR01CA0161.outlook.office365.com
+ (2603:1096:b00:68::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.12 via Frontend
+ Transport; Thu, 28 Apr 2022 09:42:22 +0000
+Authentication-Results: spf=pass (sender IP is 14.142.95.110)
+ smtp.mailfrom=alliednippon.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none
+ header.from=alliednippon.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of alliednippon.com
+ designates 14.142.95.110 as permitted sender)
+ receiver=protection.outlook.com; client-ip=14.142.95.110;
+ helo=rainmail.alliednippon.net;
+Received: from rainmail.alliednippon.net (14.142.95.110) by
+ MA1IND01FT011.mail.protection.outlook.com (10.152.200.104) with Microsoft
+ SMTP Server id 15.20.5206.12 via Frontend Transport; Thu, 28 Apr 2022
+ 09:42:21 +0000
+Received: (qmail 26707 invoked by uid 0); 28 Apr 2022 09:46:54 -0000
+Received: from 127.0.0.1 by rainmail.alliednippon.net (envelope-from <sarveshk@alliednippon.com>, uid 1001) with qmail-scanner-1.25 
+ (fireav: ???. spamassassin: 3.4.0.  
+ Clear:RC:1(127.0.0.1):SA:0(-96.8/5.0):. 
+ Processed in 1.92551 secs); 28 Apr 2022 09:46:54 -0000
+X-Spam-Status: No, hits=-96.8 required=5.0
+Received: from localhost (HELO SarveshKrPURPC) (aliedsarveshk@127.0.0.1)
+  by localhost with SMTP; 28 Apr 2022 09:46:52 -0000
+Received: from SarveshKrPURPC ([128.1.1.251] helo=SarveshKrPURPC) by
+	ASSP.nospam with SMTPSA(AES256-GCM-SHA384) (2.4.3); 28 Apr 2022 15:16:52 +0530
+From: "sarvesh" <sarveshk@alliednippon.com>
+To: "'Shishir Gupta'" <sg@risusventures.com>
+Cc: "'Vinod Tibrewala'" <hodpurchase@alliednippon.com>
+References: <41f601d84eff$256d0b80$70472280$@alliednippon.com> <A1184948-B33A-4DDF-AB70-18023E59B4B3@risusventures.com> <FC15A7AC-A843-402A-BFA4-090FBB737991@risusventures.com>  <041701d85a29$58ccded0$0a669c70$@alliednippon.com> <BM1PR01MB2882D3A8B35030CDBDB2B8E7D7FA9@BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <BM1PR01MB2882D3A8B35030CDBDB2B8E7D7FA9@BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM>
+Subject: RE: 1022001166
+Date: Thu, 28 Apr 2022 15:11:42 +0530
+Message-ID: <0d9901d85ae4$2b1e77d0$815b6770$@alliednippon.com>
+MIME-Version: 1.0
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIS4t2vA/uxQ68Q6+6Cxgso2rbs+gEBxB4sAYxacUUCsXRGGgGlKHYXrFjcqpA=
+Content-Language: en-in
+X-Assp-Version: 2.4.3(14349) on ASSP.nospam
+X-Assp-ID: ASSP.nospam 
+X-Assp-Session: 7FFA3D229A00 (mail 1)
+X-Assp-Envelope-From: sarveshk@alliednippon.com
+X-Assp-Intended-For: hodpurchase@alliednippon.com
+X-Assp-Intended-For: sg@risusventures.com
+X-Assp-Client-SSL: yes
+X-Sophos-smtpxy-version: 1.0.6.3
+X-Sophos-AV-Policy: default-smtp-av
+X-RBL-Sophos: clean
+Return-Path: sarveshk@alliednippon.com
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Apr 2022 09:42:21.7912
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ c20aeb54-36a8-46fa-3a5b-08da28fb64b6
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e434ffe4-3895-4b53-a704-9da6180d3438:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ MA1IND01FT011.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: c20aeb54-36a8-46fa-3a5b-08da28fb64b6
+X-MS-TrafficTypeDiagnostic: PN1PR01MB1071:EE_
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:14.142.95.110;CTRY:IN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:rainmail.alliednippon.net;PTR:rainmail.alliednippon.net;CAT:NONE;SFS:(13230001)(5660300002)(1096003)(26005)(7636003)(2616005)(7596003)(956004)(66574015)(336012)(53546011)(83380400001)(15974865002)(356005)(44736005)(6666004)(6916009)(107886003)(86362001)(4326008)(166002)(2160300002)(36756003)(30864003)(1420700001)(8676002)(110426009);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2022 09:42:21.1975
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c20aeb54-36a8-46fa-3a5b-08da28fb64b6
+X-MS-Exchange-CrossTenant-Id: e434ffe4-3895-4b53-a704-9da6180d3438
+X-MS-Exchange-CrossTenant-AuthSource:
+ MA1IND01FT011.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN1PR01MB1071
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.7902377
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5186.023
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506458)(944626604)(920097)(930097);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?mefEwXvdW/KrYUlJh/vcvc73tLmrIlmUVXMouSTOB6T2YVCOezDvX2tAT40L?=
+ =?us-ascii?Q?tBHKeSn4IZfPvqijhNdUc3kbhPVZiRWCAG3uVarE5QXLuOmfi1l583hbIaDW?=
+ =?us-ascii?Q?Sasva8T1meFWSDgCA86fO0ThPsQ/M+3QPp4GzOYoGIwun4j+K9YZzEFRWZwl?=
+ =?us-ascii?Q?nM/KBrhHOgl29btcg7z8KWB1Q8K5WPJjZ9m37PobcNQbXhra0LfV16MVNv3v?=
+ =?us-ascii?Q?iv5MXb4LHNaomCNge+RisdBRSrLWw495CA6yJPuwxjr/sv1Ve25kwUk7I+X1?=
+ =?us-ascii?Q?LUIbm+TpLl2jGcJBdyTDUVWM6ZRILIFi/O/+4ztfVIgnBeBFJ7ZEyQtz+4xq?=
+ =?us-ascii?Q?CXIes+XKXD8gb3CSgVkRWZbIOoUptv1lh2OX0PRi3gnY6IG0kif0U0aggQif?=
+ =?us-ascii?Q?rqLvjll2lZ9Hif+fOYnam/uqwnZ0mw0QX9g4E0Hg9CrXTZfQsqewr0YKi9Gk?=
+ =?us-ascii?Q?es88sjiEGWrlVpiY+cyTzCVn6gm2N07ayy/wwukO0HD4AppcAWAzVOVzCPL9?=
+ =?us-ascii?Q?qPVRFZEP9iFw7wuIsnIiprvYI7Es4dhaPbbJJo89tih3OBMgx/DbX6EYrmWb?=
+ =?us-ascii?Q?sKZlLRXolaTzXV8SO/eK6X0B6Egz32nOleb3lky6B50Vel5Fixh9z+riZmey?=
+ =?us-ascii?Q?2OnlF7WEKnEHrNUT2msIKMegbOT5QCM84m6xhsEt/NJLFP+xuzegL2YyDQ5f?=
+ =?us-ascii?Q?dluYT52eOGtR4evDGEySR8RLsBRIKif7fLdWXkdlvCbbsAeahM/98n5cfI5a?=
+ =?us-ascii?Q?S1HciCAZRkrsZLhvEZLkWQP4q381YzGX4SPmnSWG8AbLP6gCCKapek/3TsuU?=
+ =?us-ascii?Q?7lTtB25guDVCLeMuSSXjqnPg/l4MV7BGB95kqs4axZuLMcbuiaFnqPI21gH0?=
+ =?us-ascii?Q?B4fC7NQzxCSZHKtX5QGXx+wePNIeCOq3f5BqSLvJLbSU6u4sQZvAnhLMfVV4?=
+ =?us-ascii?Q?CJVDVh+SyJSh1ZDqr2eqaVPiNIuo1eYbTwRBcOvGpftA/8UowYHRo6JeYh8W?=
+ =?us-ascii?Q?j8Q+WJxpyp5m/NZE1gmyAofll6mZB9IJwOTlb4S0hQnb1dhh4Z1oqcxljDcW?=
+ =?us-ascii?Q?vo/bhIiOTn13PKX4bS4zfxhrqf8rBEOYrt6RXEks5k3wE/vrBrEHyO1Z3AQH?=
+ =?us-ascii?Q?Eg5BPC2qEyNY/xeCont072pZAy+QBxD7k3/XcjQym3s20IIQWHugrf5oXsNw?=
+ =?us-ascii?Q?S8eKR1pbjJrFnI3IesHnXDE/krSNnJEoLtxnjLxe+mcGsqBMdPEzKptV5FLI?=
+ =?us-ascii?Q?+LI7e3rmLXGrGqI448Rb/5twUi5rtHulcx6bPmLrYD4dAKzjFqg62RwYpKTr?=
+ =?us-ascii?Q?s++179elsztb8JBcdR+mgd6MQ+SbWKBu960r+AnZ3TdpjD5bT/I5tVuidIyi?=
+ =?us-ascii?Q?pZhlLv9zX8NoeBpUgud374/bVX6DXZ/l0+ON3e/3jnnsNJ2NIkJwqBzjyB1n?=
+ =?us-ascii?Q?n5ArSPBXPwzgxunxg80Eo4l/5PNyJ9qvD2HOk8HszpRP+8o1VPvkDZj1MgkE?=
+ =?us-ascii?Q?hsdpvTm37R8n04pNkH6An9sRTB6SPr4uQh003aQF67IeebsnxEt1HejDAiCT?=
+ =?us-ascii?Q?gGD0uvjCWjwD9nuOQsYLmq3NyqfL67XQuOy21pg5fFft2VygfFcLQC1xZKm/?=
+ =?us-ascii?Q?7/+mf/QcSx9LbPmv+98213H6yuwNJrGBFxs+gAS0wt3e3wP3OHokTsMy1i+i?=
+ =?us-ascii?Q?FCCob0s1w1gZgUvhD2zVZaI8M3Z84VKPmGzFmdEByl446Ylksjb1pSMbRB5s?=
+ =?us-ascii?Q?UdxwPTsZaKBGtYo1BHWROxmZmmG5D1WbNr/mTzJgCbQ7UfnwXbscJg/ePsfM?=
+ =?us-ascii?Q?YFOxxQg/PxWUY3K97dPyaJ374mfVWVk3f2o1PXqPiN908/p73AYdlHLvuGIp?=
+ =?us-ascii?Q?Jqz27xEvlbkQJxv9GUwmFvKruW2TgJL7irIx9c4=3D?=
+Content-type: multipart/alternative;
+	boundary="B_3734004042_697257081"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3734004042_697257081
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+Ok sir,
+
+=20
+
+We are arranging PO for balance qty
+
+=20
+
+=20
+
+Regards,
+
+Sarvesh Kumar
+
+8814800804
+
+=20
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>=20
+Sent: 27 April 2022 17:37
+To: sarvesh <sarveshk@alliednippon.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: Re: 1022001166
+
+=20
+
+Dear Sir,
+
+=20
+
+We can accommodate 12.5 MT in 20' FCL.
+
+=20
+
+I request you to please evaluate amending the order accordingly.
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambika Vihar,
+
+Delhi - 110087
+
+=20
+
+Ph (M): +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: sarvesh <sarveshk@alliednippon.com>
+Sent: Wednesday, April 27, 2022 4:54:23 PM
+To: Shishir Gupta <sg@risusventures.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: RE: 1022001166=20
+
+=20
+
+Dear Mr Shishir,
+
+Please find attached PO as required and share P.I.
+
+Material need to be dispatch in 2 shipments hence share the separate P.I.
+
+=20
+
+=20
+
+Regards,
+
+Sarvesh Kumar
+
+8814800804
+
+=20
+
+=20
+
+=20
+
+From: sarvesh <sarveshk@alliednippon.com>=20
+Sent: 23 April 2022 17:58
+To: 'Shishir Gupta' <sg@risusventures.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: RE: 1022001166
+Importance: High
+
+=20
+
+Dear  Mr Shishir,
+
+PO with updated price will be provided shortly.
+
+=20
+
+QTY=C3=A810 MT
+
+=20
+
+=20
+
+=20
+
+Regards,
+
+Sarvesh Kumar
+
+8814800804
+
+=20
+
+=20
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>=20
+Sent: 21 April 2022 10:55
+To: sarvesh <sarveshk@alliednippon.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: Re: 1022001166
+
+=20
+
+Dear Mr. Sarvesh,
+
+=20
+
+Please note that the price we have offered is our global price. We do not h=
+ave different pricing for customers.
+
+Also, our prices are independent of the quantity of material that you order=
+ from us.
+
+=20
+
+Kindly send us revised PO as per pallet size.
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambica Vihar,
+
+Delhi =E2=80=93 1100087
+
+=20
+
+Ph (M):   +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>
+Date: Wednesday, 13 April 2022 at 20:57
+To: sarvesh <sarveshk@alliednippon.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: Re: 1022001166
+
+=20
+
+Dear Sir,
+
+=20
+
+Thank you for sending the new order.
+
+=20
+
+Please note our new prices for RB 250:   EUR 2.34/kg, ex-works
+
+Also, pallet size =3D 625 kgs
+
+=20
+
+Kindly send order as per pallet size and new pricing.
+
+=20
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambica Vihar,
+
+Delhi =E2=80=93 1100087
+
+=20
+
+Ph (M):   +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: sarvesh <sarveshk@alliednippon.com>
+Date: Wednesday, 13 April 2022 at 11:55
+To: Shishir Gupta <sg@risusventures.com>
+Cc: 'Vinod Tibrewala' <hodpurchase@alliednippon.com>
+Subject: 1022001166
+
+=20
+
+Dear Sir,
+
+Please find attached the purchase order for Pulp Fibre/ Lapinus RB 250 and =
+share order confirmation..
+
+=20
+
+Regards,
+
+Sarvesh Kumar
+
+8814800804
+
+=20
+
+=20
+This e-mail is confidential and proprietary to Allied Nippon Private Limite=
+d and may be legally privileged. Unless Allied Nippon Private Limited has ag=
+reed in writing, this e-mail is not intended to create legal relations. If y=
+ou are not the intended recipient, you are notified that any dissemination o=
+r copying of this e-mail is strictly prohibited and you are requested to del=
+ete it immediately and notify the originator. Internet e-mails are not neces=
+sarily secure. Allied Nippon Private Limited accepts no responsibility eithe=
+r for breaches of confidence that may arise through the use of this medium o=
+r for changes to any e-mail which occur after the e-mail has been sent. Any =
+views expressed by an individual do not necessarily reflect the view of Alli=
+ed Nippon Private Limited. Allied Nippon Private Limited is not responsible =
+for the consequences of any action taken on the basis of information provide=
+d. Allied Nippon Private Limited has taken all reasonable precautions to ens=
+ure that this e-mail and any attachments have been
+swept for viruses. However, Allied Nippon Private Limited, its subsidiaries=
+ and affiliates, as applicable, cannot accept liability for any virus that m=
+ight be transferred by way of this e-mail. You are strongly recommended to c=
+arry out your own virus checks.
+=20
+=20
+=20
+=20
+=20
+=20
+
+=20
+This e-mail is confidential and proprietary to Allied Nippon Private Limite=
+d and may be legally privileged. Unless Allied Nippon Private Limited has ag=
+reed in writing, this e-mail is not intended to create legal relations. If y=
+ou are not the intended recipient, you are notified that any dissemination o=
+r copying of this e-mail is strictly prohibited and you are requested to del=
+ete it immediately and notify the originator. Internet e-mails are not neces=
+sarily secure. Allied Nippon Private Limited accepts no responsibility eithe=
+r for breaches of confidence that may arise through the use of this medium o=
+r for changes to any e-mail which occur after the e-mail has been sent. Any =
+views expressed by an individual do not necessarily reflect the view of Alli=
+ed Nippon Private Limited. Allied Nippon Private Limited is not responsible =
+for the consequences of any action taken on the basis of information provide=
+d. Allied Nippon Private Limited has taken all reasonable precautions to ens=
+ure that this e-mail and any attachments have been
+swept for viruses. However, Allied Nippon Private Limited, its subsidiaries=
+ and affiliates, as applicable, cannot accept liability for any virus that m=
+ight be transferred by way of this e-mail. You are strongly recommended to c=
+arry out your own virus checks.
+=20
+=20
+=20
+=20
+=20
+=20
+
+This e-mail is confidential and proprietary to Allied Nippon Private Limite=
+d and may be legally privileged. Unless Allied Nippon Private Limited has ag=
+reed in writing, this e-mail is not intended to create legal relations. If y=
+ou are not the intended recipient, you are notified that any dissemination o=
+r copying of this e-mail is strictly prohibited and you are requested to del=
+ete it immediately and notify the originator. Internet e-mails are not neces=
+sarily secure. Allied Nippon Private Limited accepts no responsibility eithe=
+r for breaches of confidence that may arise through the use of this medium o=
+r for changes to any e-mail which occur after the e-mail has been sent. Any =
+views expressed by an individual do not necessarily reflect the view of Alli=
+ed Nippon Private Limited. Allied Nippon Private Limited is not responsible =
+for the consequences of any action taken on the basis of information provide=
+d. Allied Nippon Private Limited has taken all reasonable precautions to ens=
+ure that this e-mail and any attachments have been
+swept for viruses. However, Allied Nippon Private Limited, its subsidiaries=
+ and affiliates, as applicable, cannot accept liability for any virus that m=
+ight be transferred by way of this e-mail. You are strongly recommended to c=
+arry out your own virus checks.
+
+
+
+
+
+
+
+
+--B_3734004042_697257081
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsof=
+t-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" xmlns:x=
+=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schemas.microsoft.=
+com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><meta na=
+me=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)"><!--[if !mso]><=
+style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+pre
+	{mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-priority:99;
+	mso-style-link:"HTML Preformatted";
+	font-family:Consolas;}
+p.xmsonormal, li.xmsonormal, div.xmsonormal
+	{mso-style-name:x_msonormal;
+	margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle26
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3D"EN-IN" link=3D"#0563C1" =
+vlink=3D"purple" style=3D"word-wrap:break-word"><div class=3D"WordSection1"><p cla=
+ss=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Ok sir,<o:p></o:p></=
+span></p><p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>=
+&nbsp;</o:p></span></p><p class=3D"MsoNormal"><span style=3D"mso-fareast-languag=
+e:EN-US">We are arranging PO for balance qty<o:p></o:p></span></p><p class=3D"=
+MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p=
+ class=3D"MsoNormal">Regards,<o:p></o:p></p><p class=3D"MsoNormal">Sarvesh Kumar=
+<o:p></o:p></p><p class=3D"MsoNormal">8814800804<o:p></o:p></p><p class=3D"MsoNo=
+rmal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNormal"><span style=3D"mso-fareast-lan=
+guage:EN-US"><o:p>&nbsp;</o:p></span></p><div><div style=3D"border:none;border=
+-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b>=
+<span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Shishir Gupta &lt;sg@=
+risusventures.com&gt; <br><b>Sent:</b> 27 April 2022 17:37<br><b>To:</b> sar=
+vesh &lt;sarveshk@alliednippon.com&gt;<br><b>Cc:</b> 'Vinod Tibrewala' &lt;h=
+odpurchase@alliednippon.com&gt;<br><b>Subject:</b> Re: 1022001166<o:p></o:p>=
+</span></p></div></div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><div><p cla=
+ss=3D"MsoNormal">Dear Sir,<o:p></o:p></p></div><div><p class=3D"MsoNormal"><o:p>=
+&nbsp;</o:p></p></div><div><p class=3D"MsoNormal">We can accommodate 12.5 MT i=
+n 20' FCL.<o:p></o:p></p></div><div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></=
+p></div><div><p class=3D"MsoNormal">I request you to please evaluate amending =
+the order accordingly.<o:p></o:p></p></div><div><p class=3D"MsoNormal"><o:p>&n=
+bsp;</o:p></p></div><div id=3D"ms-outlook-mobile-signature"><div><p class=3D"Mso=
+Normal">Best regards,<o:p></o:p></p></div><div><p class=3D"MsoNormal">Shishir =
+Gupta<o:p></o:p></p></div><div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p></d=
+iv><div><p class=3D"MsoNormal">Risus Ventures (OPC) Pvt. Ltd.,<o:p></o:p></p><=
+/div><div><p class=3D"MsoNormal">292, Ambika Vihar,<o:p></o:p></p></div><div><=
+p class=3D"MsoNormal">Delhi - 110087<o:p></o:p></p></div><div><p class=3D"MsoNor=
+mal"><o:p>&nbsp;</o:p></p></div><div><p class=3D"MsoNormal">Ph (M): +91 981029=
+9618<o:p></o:p></p></div><div><p class=3D"MsoNormal">Web:&nbsp; &nbsp; &nbsp; =
+<a href=3D"http://www.risusventures.com">www.risusventures.com</a><o:p></o:p><=
+/p></div><div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p></div></div><div cla=
+ss=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><hr size=3D"2" width=3D"=
+98%" align=3D"center"></div><div id=3D"divRplyFwdMsg"><p class=3D"MsoNormal"><b><s=
+pan style=3D"color:black">From:</span></b><span style=3D"color:black"> sarvesh &=
+lt;<a href=3D"mailto:sarveshk@alliednippon.com">sarveshk@alliednippon.com</a>&=
+gt;<br><b>Sent:</b> Wednesday, April 27, 2022 4:54:23 PM<br><b>To:</b> Shish=
+ir Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@risusventures.com</a>&=
+gt;<br><b>Cc:</b> 'Vinod Tibrewala' &lt;<a href=3D"mailto:hodpurchase@alliedni=
+ppon.com">hodpurchase@alliednippon.com</a>&gt;<br><b>Subject:</b> RE: 102200=
+1166</span> <o:p></o:p></p><div><p class=3D"MsoNormal">&nbsp;<o:p></o:p></p></=
+div></div><div><div><p class=3D"xmsonormal">Dear Mr Shishir,<o:p></o:p></p><p =
+class=3D"xmsonormal">Please find attached PO as required and share P.I.<o:p></=
+o:p></p><p class=3D"xmsonormal">Material need to be dispatch in 2 shipments he=
+nce share the separate P.I.<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p><=
+/o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">Re=
+gards,<o:p></o:p></p><p class=3D"xmsonormal">Sarvesh Kumar<o:p></o:p></p><p cl=
+ass=3D"xmsonormal">8814800804<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p><=
+/o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">&n=
+bsp;<o:p></o:p></p><div><div style=3D"border:none;border-top:solid #E1E1E1 1.0=
+pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"xmsonormal"><b><span lang=3D"EN-US">Fr=
+om:</span></b><span lang=3D"EN-US"> sarvesh &lt;<a href=3D"mailto:sarveshk@allie=
+dnippon.com">sarveshk@alliednippon.com</a>&gt; <br><b>Sent:</b> 23 April 202=
+2 17:58<br><b>To:</b> 'Shishir Gupta' &lt;<a href=3D"mailto:sg@risusventures.c=
+om">sg@risusventures.com</a>&gt;<br><b>Cc:</b> 'Vinod Tibrewala' &lt;<a href=
+=3D"mailto:hodpurchase@alliednippon.com">hodpurchase@alliednippon.com</a>&gt;<=
+br><b>Subject:</b> RE: 1022001166<br><b>Importance:</b> High</span><o:p></o:=
+p></p></div></div><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmson=
+ormal">Dear &nbsp;Mr Shishir,<o:p></o:p></p><p class=3D"xmsonormal">PO with up=
+dated price will be provided shortly.<o:p></o:p></p><p class=3D"xmsonormal">&n=
+bsp;<o:p></o:p></p><p class=3D"xmsonormal">QTY<span style=3D"font-family:Wingdin=
+gs">=C3=A8</span>10 MT<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p>=
+<p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p>=
+</o:p></p><p class=3D"xmsonormal">Regards,<o:p></o:p></p><p class=3D"xmsonormal"=
+>Sarvesh Kumar<o:p></o:p></p><p class=3D"xmsonormal">8814800804<o:p></o:p></p>=
+<p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p>=
+</o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><div><div style=3D"border=
+:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"xm=
+sonormal"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Shishir =
+Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@risusventures.com</a>&gt;=
+ <br><b>Sent:</b> 21 April 2022 10:55<br><b>To:</b> sarvesh &lt;<a href=3D"mai=
+lto:sarveshk@alliednippon.com">sarveshk@alliednippon.com</a>&gt;<br><b>Cc:</=
+b> 'Vinod Tibrewala' &lt;<a href=3D"mailto:hodpurchase@alliednippon.com">hodpu=
+rchase@alliednippon.com</a>&gt;<br><b>Subject:</b> Re: 1022001166</span><o:p=
+></o:p></p></div></div><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"=
+xmsonormal">Dear Mr. Sarvesh,<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p=
+></o:p></p><p class=3D"xmsonormal">Please note that the price we have offered =
+is our global price. We do not have different pricing for customers.<o:p></o=
+:p></p><p class=3D"xmsonormal">Also, our prices are independent of the quantit=
+y of material that you order from us.<o:p></o:p></p><p class=3D"xmsonormal">&n=
+bsp;<o:p></o:p></p><p class=3D"xmsonormal">Kindly send us revised PO as per pa=
+llet size.<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><div><di=
+v><div><p class=3D"xmsonormal">Best regards,<o:p></o:p></p><p class=3D"xmsonorma=
+l">Shishir Gupta<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p=
+ class=3D"xmsonormal"><span style=3D"font-size:10.0pt">Risus Ventures (OPC) Pvt.=
+ Ltd.,</span><o:p></o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:10.=
+0pt">292, Ambica Vihar,</span><o:p></o:p></p><p class=3D"xmsonormal"><span sty=
+le=3D"font-size:10.0pt">Delhi =E2=80=93 1100087</span><o:p></o:p></p><p class=3D"xmson=
+ormal"><span style=3D"font-size:10.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"=
+xmsonormal"><span style=3D"font-size:10.0pt">Ph (M):&nbsp;&nbsp; +91 981029961=
+8</span><o:p></o:p></p></div></div></div><p class=3D"xmsonormal"><span style=3D"=
+font-size:10.0pt">Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=3D"http://www.ris=
+usventures.com">www.risusventures.com</a></span><o:p></o:p></p><p class=3D"xms=
+onormal">&nbsp;<o:p></o:p></p><div style=3D"border:none;border-top:solid #B5C4=
+DF 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"xmsonormal"><b><span style=3D"fo=
+nt-size:12.0pt;color:black">From: </span></b><span style=3D"font-size:12.0pt;c=
+olor:black">Shishir Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@risus=
+ventures.com</a>&gt;<br><b>Date: </b>Wednesday, 13 April 2022 at 20:57<br><b=
+>To: </b>sarvesh &lt;<a href=3D"mailto:sarveshk@alliednippon.com">sarveshk@all=
+iednippon.com</a>&gt;<br><b>Cc: </b>'Vinod Tibrewala' &lt;<a href=3D"mailto:ho=
+dpurchase@alliednippon.com">hodpurchase@alliednippon.com</a>&gt;<br><b>Subje=
+ct: </b>Re: 1022001166</span><o:p></o:p></p></div><div><p class=3D"xmsonormal"=
+>&nbsp;<o:p></o:p></p></div><p class=3D"xmsonormal">Dear Sir,<o:p></o:p></p><p=
+ class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">Thank you for=
+ sending the new order.<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p=
+></p><p class=3D"xmsonormal">Please note our new prices for RB 250:&nbsp;&nbsp=
+; EUR 2.34/kg, ex-works<o:p></o:p></p><p class=3D"xmsonormal">Also, pallet siz=
+e =3D 625 kgs<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p clas=
+s=3D"xmsonormal">Kindly send order as per pallet size and new pricing.<o:p></o=
+:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal">&nbs=
+p;<o:p></o:p></p><div><div><div><p class=3D"xmsonormal">Best regards,<o:p></o:=
+p></p><p class=3D"xmsonormal">Shishir Gupta<o:p></o:p></p><p class=3D"xmsonormal=
+">&nbsp;<o:p></o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:10.0pt">=
+Risus Ventures (OPC) Pvt. Ltd.,</span><o:p></o:p></p><p class=3D"xmsonormal"><=
+span style=3D"font-size:10.0pt">292, Ambica Vihar,</span><o:p></o:p></p><p cla=
+ss=3D"xmsonormal"><span style=3D"font-size:10.0pt">Delhi =E2=80=93 1100087</span><o:p>=
+</o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:10.0pt">&nbsp;</span>=
+<o:p></o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:10.0pt">Ph (M):&=
+nbsp;&nbsp; +91 9810299618</span><o:p></o:p></p></div><div><p class=3D"xmsonor=
+mal"><span style=3D"font-size:10.0pt">Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a hr=
+ef=3D"http://www.risusventures.com">www.risusventures.com</a></span><o:p></o:p=
+></p></div></div></div><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><div style=
+=3D"border:none;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p c=
+lass=3D"xmsonormal"><b><span style=3D"font-size:12.0pt;color:black">From: </span=
+></b><span style=3D"font-size:12.0pt;color:black">sarvesh &lt;<a href=3D"mailto:=
+sarveshk@alliednippon.com">sarveshk@alliednippon.com</a>&gt;<br><b>Date: </b=
+>Wednesday, 13 April 2022 at 11:55<br><b>To: </b>Shishir Gupta &lt;<a href=3D"=
+mailto:sg@risusventures.com">sg@risusventures.com</a>&gt;<br><b>Cc: </b>'Vin=
+od Tibrewala' &lt;<a href=3D"mailto:hodpurchase@alliednippon.com">hodpurchase@=
+alliednippon.com</a>&gt;<br><b>Subject: </b>1022001166</span><o:p></o:p></p>=
+</div><div><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p></div><p class=3D"xmsono=
+rmal">Dear Sir,<o:p></o:p></p><p class=3D"xmsonormal">Please find attached the=
+ purchase order for <span style=3D"font-size:8.0pt;font-family:&quot;Arial&quo=
+t;,sans-serif">Pulp Fibre/ Lapinus RB 250 and share order confirmation..</sp=
+an><o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><p class=3D"xmson=
+ormal">Regards,<o:p></o:p></p><p class=3D"xmsonormal">Sarvesh Kumar<o:p></o:p>=
+</p><p class=3D"xmsonormal">8814800804<o:p></o:p></p><p class=3D"xmsonormal">&nb=
+sp;<o:p></o:p></p><p class=3D"xmsonormal">&nbsp;<o:p></o:p></p><pre>This e-mai=
+l is confidential and proprietary to Allied Nippon Private Limited and may b=
+e legally privileged. Unless Allied Nippon Private Limited has agreed in wri=
+ting, this e-mail is not intended to create legal relations. If you are not =
+the intended recipient, you are notified that any dissemination or copying o=
+f this e-mail is strictly prohibited and you are requested to delete it imme=
+diately and notify the originator. Internet e-mails are not necessarily secu=
+re. Allied Nippon Private Limited accepts no responsibility either for breac=
+hes of confidence that may arise through the use of this medium or for chang=
+es to any e-mail which occur after the e-mail has been sent. Any views expre=
+ssed by an individual do not necessarily reflect the view of Allied Nippon P=
+rivate Limited. Allied Nippon Private Limited is not responsible for the con=
+sequences of any action taken on the basis of information provided. Allied N=
+ippon Private Limited has taken all reasonable precautions to ensure that th=
+is e-mail and any attachments have been<o:p></o:p></pre><pre>swept for virus=
+es. However, Allied Nippon Private Limited, its subsidiaries and affiliates,=
+ as applicable, cannot accept liability for any virus that might be transfer=
+red by way of this e-mail. You are strongly recommended to carry out your ow=
+n virus checks.<o:p></o:p></pre><pre>&nbsp;<o:p></o:p></pre><pre>&nbsp;<o:p>=
+</o:p></pre><pre>&nbsp;<o:p></o:p></pre><pre>&nbsp;<o:p></o:p></pre><pre>&nb=
+sp;<o:p></o:p></pre><p class=3D"xmsonormal" style=3D"margin-bottom:12.0pt">&nbsp=
+;<o:p></o:p></p></div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><pre>This e-=
+mail is confidential and proprietary to Allied Nippon Private Limited and ma=
+y be legally privileged. Unless Allied Nippon Private Limited has agreed in =
+writing, this e-mail is not intended to create legal relations. If you are n=
+ot the intended recipient, you are notified that any dissemination or copyin=
+g of this e-mail is strictly prohibited and you are requested to delete it i=
+mmediately and notify the originator. Internet e-mails are not necessarily s=
+ecure. Allied Nippon Private Limited accepts no responsibility either for br=
+eaches of confidence that may arise through the use of this medium or for ch=
+anges to any e-mail which occur after the e-mail has been sent. Any views ex=
+pressed by an individual do not necessarily reflect the view of Allied Nippo=
+n Private Limited. Allied Nippon Private Limited is not responsible for the =
+consequences of any action taken on the basis of information provided. Allie=
+d Nippon Private Limited has taken all reasonable precautions to ensure that=
+ this e-mail and any attachments have been<o:p></o:p></pre><pre>swept for vi=
+ruses. However, Allied Nippon Private Limited, its subsidiaries and affiliat=
+es, as applicable, cannot accept liability for any virus that might be trans=
+ferred by way of this e-mail. You are strongly recommended to carry out your=
+ own virus checks.<o:p></o:p></pre><pre><o:p>&nbsp;</o:p></pre><pre><o:p>&nb=
+sp;</o:p></pre><pre><o:p>&nbsp;</o:p></pre><pre><o:p>&nbsp;</o:p></pre><pre>=
+<o:p>&nbsp;</o:p></pre><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p></div></div=
+><br><pre>This e-mail is confidential and proprietary to Allied Nippon Priva=
+te Limited and may be legally privileged. Unless Allied Nippon Private Limit=
+ed has agreed in writing, this e-mail is not intended to create legal relati=
+ons. If you are not the intended recipient, you are notified that any dissem=
+ination or copying of this e-mail is strictly prohibited and you are request=
+ed to delete it immediately and notify the originator. Internet e-mails are =
+not necessarily secure. Allied Nippon Private Limited accepts no responsibil=
+ity either for breaches of confidence that may arise through the use of this=
+ medium or for changes to any e-mail which occur after the e-mail has been s=
+ent. Any views expressed by an individual do not necessarily reflect the vie=
+w of Allied Nippon Private Limited. Allied Nippon Private Limited is not res=
+ponsible for the consequences of any action taken on the basis of informatio=
+n provided. Allied Nippon Private Limited has taken all reasonable precautio=
+ns to ensure that this e-mail and any attachments have been
+swept for viruses. However, Allied Nippon Private Limited, its subsidiaries=
+ and affiliates, as applicable, cannot accept liability for any virus that m=
+ight be transferred by way of this e-mail. You are strongly recommended to c=
+arry out your own virus checks.
+
+
+
+
+
+</pre><br></body></html>
+
+--B_3734004042_697257081--
+

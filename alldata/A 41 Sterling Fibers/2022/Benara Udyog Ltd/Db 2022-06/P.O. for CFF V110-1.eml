@@ -1,0 +1,180 @@
+Received: from BMXPR01MB2647.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:2e::16)
+ by BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM with HTTPS; Wed, 1 Jun 2022
+ 10:20:26 +0000
+Received: from MA1PR01CA0181.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:d::19)
+ by BMXPR01MB2647.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:2e::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5293.13; Wed, 1 Jun
+ 2022 10:20:25 +0000
+Received: from MA1IND01FT009.eop-IND01.prod.protection.outlook.com
+ (2603:1096:a01:d:cafe::e2) by MA1PR01CA0181.outlook.office365.com
+ (2603:1096:a01:d::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5314.13 via Frontend
+ Transport; Wed, 1 Jun 2022 10:20:24 +0000
+Authentication-Results: spf=none (sender IP is 202.137.236.223)
+ smtp.mailfrom=benaraudyog.com; dkim=pass (signature was verified)
+ header.d=rediffmailpro.com;dmarc=none action=none
+ header.from=benaraudyog.com;compauth=pass reason=116
+Received-SPF: None (protection.outlook.com: benaraudyog.com does not designate
+ permitted sender hosts)
+Received: from pro-236-223.rediffmailpro.com (202.137.236.223) by
+ MA1IND01FT009.mail.protection.outlook.com (10.152.200.130) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5314.12 via Frontend Transport; Wed, 1 Jun 2022 10:20:24 +0000
+X-REDIFF-Delivered-Remotely-To: sg@risusventures.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rediffmailpro.com;
+	s=epro; t=1654078823;
+	bh=QU/GkAQ2XoovJYQz+nkts/dpj/gRzUHLFuYOlkwKDXI=;
+	h=MIME-Version:From:Date:Message-ID:Subject:To;
+	b=FMx0i5MsOYpjHtMl8tQXa6/FnTU8Ow3wxiMCfxZypsgdhIHYQwUopnbVZPyPtjytn
+	 RNwf5IvtHqRmW0YXDjYFVH76coDunI7UKpO6jJZDzSb+SZejlR0goPvI9FQPOYL3As
+	 o5VBJDrW6DkvfyCy/cVNcbOr8bNOUSgVltagMjkI=
+Received: (qmail 20714 invoked by uid 510); 1 Jun 2022 10:20:23 -0000
+x-m-msg: 6f6bb610376600d0ae40b6a320eb1443; a6da7d6asas6dasd77; 5dad65ad5sd;
+X-OUT-VDRT-SpamState: 0\LEGIT
+X-OUT-VDRT-SpamScore: 0
+X-OUT-VDRT-SpamCause: gggruggvucftvghtrhhoucdtuddrgedvfedrledtgddvhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddtnecunecujfgurhepffggvffkshfuhfevtgesrgdtreertddtjeenucfhrhhomhepfdfjvghmrghnthcuufhhrghrmhgrfdcuoehhvghmrghnthessggvnhgrrhgruhguhihoghdrtghomheqnecuggftrfgrthhtvghrnhepvdefheefveevieeifeejjeekhfetveekleevgeeuhfetueduheeukeektdfhtdevnecukfhppedukedvrdejledruddtkedrvdeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhhouggvpehsmhhtphhouhht
+X-Dedup-Identifier: 1654078823_20681_20680_pro-236-223
+Date: 1 Jun 2022 10:20:22 -0000
+MIME-Version: 1.0
+To: "sg@risusventures.com" <sg@risusventures.com>
+Received: from unknown 182.79.108.230 by rediffmailpro.com via HTTP; 01 Jun
+ 2022 10:20:22 -0000
+Message-ID: <1625556944.S.3502.30243.pro236-194.rediffmailpro.com.1654078822.20630@webmail.rediffmail.com>
+Sender: hemant@benaraudyog.com
+Subject: =?utf-8?B?UC5PLiBmb3IgQ0ZGIFYxMTAtMQ==?=
+From: "Hemant Sharma" <hemant@benaraudyog.com>
+Cc: "divoy" <divoy@benaraudyog.com>, "gati sheel" <accounts@benaraudyog.com>,
+  "anil.gupta@paneximindia.com" <anil.gupta@paneximindia.com>,
+  "unit2" <unit2@benaraudyog.com>
+Return-Path: hemant@benaraudyog.com
+X-MS-Exchange-Organization-ExpirationStartTime: 01 Jun 2022 10:20:24.2727
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 310d61e3-4121-449f-c1b1-08da43b85738
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e434ffe4-3895-4b53-a704-9da6180d3438:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-Matching-Connectors:
+ 132985524243977269;();(b86f17e9-2342-4723-393f-08d80ec19854)
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ MA1IND01FT009.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 310d61e3-4121-449f-c1b1-08da43b85738
+X-MS-TrafficTypeDiagnostic: BMXPR01MB2647:EE_
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:202.137.236.223;CTRY:IN;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:SFE;H:pro-236-223.rediffmailpro.com;PTR:pro236-223.mxout.rediffmailpro.com;CAT:NONE;SFS:;DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jun 2022 10:20:24.1321
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 310d61e3-4121-449f-c1b1-08da43b85738
+X-MS-Exchange-CrossTenant-Id: e434ffe4-3895-4b53-a704-9da6180d3438
+X-MS-Exchange-CrossTenant-AuthSource:
+ MA1IND01FT009.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BMXPR01MB2647
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1837494
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5293.019
+X-Microsoft-Antispam-Mailbox-Delivery:
+	rwl:1;ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506458)(944626604)(920097)(815001)(250001)(410001)(930097);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?8iVQiHaZ8eAM6nXb7w1eIgzW1E+YXxgRaMg/8RFGey9kNsfoHW+gsKyu++hO?=
+ =?us-ascii?Q?kM1ptOFhCv/95jNqqJdA6H1f7BRK3OpgO77g51q8pdCslivuD1jNik4XASkk?=
+ =?us-ascii?Q?VMz9D0CurpUJBSzgRgWMLGDEw/tQlcLOP1uYKMxOi+0XOUKc9SC8ZNZiK8a0?=
+ =?us-ascii?Q?Sq4iNiTnzzusAtEfBjGJkxupCjmCHlk50NP1hzWLY8Nxm3F/fXHkMSPSz/+f?=
+ =?us-ascii?Q?ZcHxuYjKrnIgl/XM7G49Y9NBC1s8YN5UnACl+v1KXpF9E2WwBumpNza/Qna+?=
+ =?us-ascii?Q?WVLE7/kK+vtlgU769ZDZ3NTjoQivv56o+Z0p6OqF5eZAe08yWx9pzYcyMa3K?=
+ =?us-ascii?Q?zuvlc7HRicXT6cGjLbH03TMwZedLm5vC+xej70zGUYERgeHLpqiN4dzbU7ln?=
+ =?us-ascii?Q?DoOKuHLuaOLibvYowDn2gBhvTQajdYyeciZpQnwDsCqX0rgO3ku/MAs7S4Jq?=
+ =?us-ascii?Q?UGxc5kMDf92IuuoU/aoKe3BH+MrhfbEWEAo5VK4BFwpzKUWgzuKCGinSwNH2?=
+ =?us-ascii?Q?kVd1Ep9r+6isEFKgCCYscBlqz9TXOHbk7ekDlaerpglsh93Kv/SwxiVh4yYN?=
+ =?us-ascii?Q?A5H3CTL2ihGfqD8KJcLefnlKMA+zfEgIrn2uXn/BvgEpsMA1q6ag1WcuzkE9?=
+ =?us-ascii?Q?xBSYKbYhzQkYTx+eklpoggmMRrmZx0S3L1Z5vlJcrDhg3nFtncPWxtRE6u8g?=
+ =?us-ascii?Q?evdZYXszVa1yUV3CskwxffGQTRnkzqdTbJztOt9+kx0O4fQ0iXFSPH9GProa?=
+ =?us-ascii?Q?U9Bh5dapGMK/pHocov20/P4lwxXMMtv0kjeiE0DriXlxFB59dhuvAaRMUD/c?=
+ =?us-ascii?Q?Uh4AfNw8z9Q0IqyKt56GP9MGMZ6QN+hSlEQyDdFOjC8t/3ewds0v2q3xaPyi?=
+ =?us-ascii?Q?JfcRxT9/A4ATtS2TDPLVKzGUe4V0Dmy5fk1UzKZ8ASSU/CrWPOOBXGHp7yiu?=
+ =?us-ascii?Q?f7Ue7tKgLhhdDsYETJJ1AFQ+Calk2vTlJz4MeWFoeCS8GOe1IgOC1xMphWmx?=
+ =?us-ascii?Q?VRhVMvwOpkO0scag8Edm34UtnKd5/tz2DaWJ6ltRxvCbDdSWEV3hqvqQFnPQ?=
+ =?us-ascii?Q?mtXAgg8ipdBvrO79YjQlhYdcK7ZPo3Vgu4PVxl23mbMQbEqB0RwUzIOrKp/+?=
+ =?us-ascii?Q?0lUUaDTx7IviJNoXTl1Oxs9TuE6/KYwi7pgBMCupy/UFrlZHOAFnjduklqmn?=
+ =?us-ascii?Q?y2k7vKltn9CUNAeC3bmPQGB+jtSYP3NUTSacvgATkrXDFXeR4Mr/1QUQem50?=
+ =?us-ascii?Q?5n0CFko1tN88nIrLMdG7vE8td0Wq3Ace2OHTV9iKjUM8mnJIJ6aUY0GYSzFU?=
+ =?us-ascii?Q?gW145duX/53ZHPoU2fCJS3qBLRYM+pR/oYTCgPC654cpvkywwNWypWTjcahv?=
+ =?us-ascii?Q?/VeKJzqMDVXq6diH0MhlPZaurcrDp0x9Eyz3VjMYGlZt72ZRqAMWoAkFRFFb?=
+ =?us-ascii?Q?PwPjsHpaGzQYhuHjbYeJenMi2srHQiUUImk9hXzwUkLYiTfheWjiRDO9GQPE?=
+ =?us-ascii?Q?kdB0e3EhCsE1J4ppqqrfDYt0iou9+mnJj4ktqGK7F8kPaV1RgzFpSkZ9C9A4?=
+ =?us-ascii?Q?DJxUosyrPNabeXWsGkfAcWmBnuBPKTDnH9pDI1uLCKk/kzoi5hNqRAqvgkfR?=
+ =?us-ascii?Q?nv5GPD4roAjNgWDqe7NREJH8kLWMOwtx+ZDPq9TyKtY2b3JNJaufga/1CT3I?=
+ =?us-ascii?Q?nK3yTp6gsvMFDtxX5mt6dM0Aig+1lgrkvrMcDut1QjNkYHwC5iVrN0nFRyxQ?=
+ =?us-ascii?Q?+CjSSeewpw=3D=3D?=
+Content-type: multipart/alternative;
+	boundary="B_3737136885_307443904"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3737136885_307443904
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: 7bit
+
+Dear Sir,
+
+We are pleased to place the order for 354 kgs of CFF V110-1. 
+You are requested to acknowledge the same and forward us the Pre- Shipment documents ASAP.
+
+With Regards,
+Hemant Kumar
+General Manager (Operations)
+Benara Udyog Ltd., 
+Unit-II, Mathura Road, Runkata,
+AGRA - 282007. (U.P.)
+INDIA.
+Cell +91 9719100591 / 8279663184 
+
+--B_3737136885_307443904
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></head><=
+body>Dear Sir,<br><br><div>We are pleased to place the order for <span style=
+=3D"font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;">354 kgs of CFF V11=
+0-1. <br></span></div><div><span style=3D"font-family:&quot;Verdana&quot;,&quo=
+t;sans-serif&quot;">You are requested to acknowledge the same and forward us=
+ the Pre- Shipment documents ASAP.</span></div><div><span style=3D"font-family=
+:&quot;Verdana&quot;,&quot;sans-serif&quot;"><br></span></div><div><b><span =
+style=3D"font-size:18px;"><span style=3D"font-family:arial,helvetica,sans-serif;=
+"><span style=3D"font-size:14px;">With Regards,</span></span></span></b><b><sp=
+an style=3D"font-size:18px;"><span style=3D"font-family:arial,helvetica,sans-ser=
+if;"><br></span></span></b></div><div><b><span style=3D"font-size:18px;"><span=
+ style=3D"font-family:arial,helvetica,sans-serif;">Hemant Kumar</span></span><=
+/b></div><div><span style=3D"font-size:14px;"><b><span style=3D"font-family:aria=
+l,helvetica,sans-serif;">General Manager (Operations)</span></b></span></div=
+><b><span style=3D"font-size:18px;"><span style=3D"font-family:arial,helvetica,s=
+ans-serif;">Benara Udyog Ltd., </span></span></b><br><div><span style=3D"font-=
+family:arial,helvetica,sans-serif;">Unit-II, Mathura Road, Runkata,</span></=
+div><span style=3D"font-family:arial,helvetica,sans-serif;"><b>AGRA - 282007. =
+(U.P.)</b></span><br><div><span style=3D"font-family:arial,helvetica,sans-seri=
+f;"><b>INDIA.</b></span></div><b><span style=3D"font-family:arial,helvetica,sa=
+ns-serif;"><span style=3D"color: rgb(34, 34, 34); text-transform: none; text-i=
+ndent: 0px; letter-spacing: normal; font-size: 14px; font-style: normal; fon=
+t-weight: 400; word-spacing: 0px; white-space: normal; background-color: rgb=
+(255, 255, 255);">Cell +91 </span><span style=3D"color: rgb(34, 34, 34); font-=
+size: 14px;">9719100591 / 8279663184</span></span></b><span style=3D"color:rgb=
+(34,34,34);text-transform:none;text-indent:0px;letter-spacing:normal;font-fa=
+mily:Arial,Helvetica,sans-serif;font-size:14px;font-style:normal;font-weight=
+:400;word-spacing:0px;white-space:normal;background-color:rgb(255,255,255)">=
+<span style=3D"font-family:tahoma,geneva,sans-serif"> </span></span></body></h=
+tml>
+
+--B_3737136885_307443904--
+

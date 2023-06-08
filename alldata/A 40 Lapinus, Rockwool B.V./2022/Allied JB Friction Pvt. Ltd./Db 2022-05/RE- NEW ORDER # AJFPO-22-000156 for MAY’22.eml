@@ -1,0 +1,1776 @@
+Received: from PNYPR01MB8333.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:52::10)
+ by BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM with HTTPS; Thu, 5 May 2022
+ 13:19:58 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=QOPQ0O7ruESOhav2gIzqrADcbg8TLSx6E0hw7dDx0tfnqZIkimf2OtuSqDL3nt+PMnP0BveqK6CjyxRl8e4NsFLBoK/v4aAfXB1qKfTnF3ypf51OJzAgijH1yGqG/c5zPh3bTDC/1PY63exUutDJ8Wl8UpEwvqKo6L9Hwl8KuMUOO9Il4K39R/7B2bZhXcZM1H8seD6cUbSMP8Hcj7YHMjvt584D8vNBWXJTAjhtizcB25LgnPExWP2/gIJTuvHeJSXBgXb6oAH0A1B6PepZa+W4fxIRC+PA18wJKXGPPMUFHP1GQM5dmrARcTIolYke57LQo9rcd9XqMQ6nEi5G1g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j3h1imPj+ck6xo0PmFIHiI7WOfpZJ7WL/JFy83kBwB8=;
+ b=lyUvQZZs45cNylFSnaAVUjW7DA+qUMMEFrzdtaTgmH6hGq4jwAOCz5sOaOPyZkrnhrJ9iP9u7ikJVmfo9G3eKVNSIEN+IZ8Nw77CpWuNVSCCOKsJCVmThoHGh0Bky40fcliFfV2YG1+rBf1C2L7GtTNy3Otn/8ciCO/phLfhz/sGauQBzk7Q8+dY9IEizHUvPPUhaVHAbb/xZwJfJaFUkYpqFFa+xrB5e3KdtYVNk5JRmAAHKO9tjbtUuMNMHSFkwwmwxCQP+nM63CXAVhTPjJwRKmdNwOv4EabIQaS1Vb8RvQZHpcYPhpr+yf5C/FbhQLvUPg5gJKl4A/wbOi8jPQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 104.47.23.175) smtp.rcpttodomain=risusventures.com
+ smtp.mailfrom=showadenko.com; dmarc=bestguesspass action=none
+ header.from=showadenko.com; dkim=pass (signature was verified)
+ header.d=showadenko.onmicrosoft.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=showadenko.com] dkim=[1,1,header.d=showadenko.com]
+ dmarc=[1,1,header.from=showadenko.com])
+Received: from MAXPR0101CA0053.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:e::15)
+ by PNYPR01MB8333.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:52::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.24; Thu, 5 May
+ 2022 13:19:56 +0000
+Received: from MA1IND01FT004.eop-IND01.prod.protection.outlook.com
+ (2603:1096:a00:e:cafe::97) by MAXPR0101CA0053.outlook.office365.com
+ (2603:1096:a00:e::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.13 via Frontend
+ Transport; Thu, 5 May 2022 13:19:56 +0000
+Authentication-Results: spf=pass (sender IP is 104.47.23.175)
+ smtp.mailfrom=showadenko.com; dkim=pass (signature was verified)
+ header.d=showadenko.onmicrosoft.com;dmarc=bestguesspass action=none
+ header.from=showadenko.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of showadenko.com
+ designates 104.47.23.175 as permitted sender)
+ receiver=protection.outlook.com; client-ip=104.47.23.175;
+ helo=JPN01-TYC-obe.outbound.protection.outlook.com;
+Received: from JPN01-TYC-obe.outbound.protection.outlook.com (104.47.23.175)
+ by MA1IND01FT004.mail.protection.outlook.com (10.152.200.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5227.15 via Frontend Transport; Thu, 5 May 2022 13:19:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=oFGErjYWwHNg3uFjwvY3OdwnEUKICrt8HYrfCodZAYw22aW8Upmii5Loyag3VK7mzLxZZgu6WBdLEZ9wie2r306ObtZ5Ovxi9FaHKeyaoW9DfJipWaYqV9mIXBPJxDzsFL5xnsyeipfDISNn+wIa6wjJAe2c3dnuTCQTMgJJ4jaa5k4vrv9KsJVfd94odwfz1BtwyDzFjZTe9XdKvFskoo2Q2Lds7TlhvjrJZF20lGV691LvQG5RwBHd3LdUchZSgxWb/yCSX/bDEtoc7jMPJuRjFonAUbJts5gTxzthtt6RFzpPAUhelGObZg6b+/rbo2nAGthIXjKjGva91vPWqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j3h1imPj+ck6xo0PmFIHiI7WOfpZJ7WL/JFy83kBwB8=;
+ b=f/aONCSeRc6aSoWotleAr+VxMnRxnJR05tlt0XzHDt+mgDt91sMYNCYeRfJvvkRTkT3GSKJ3Eo7hjpynhMaLvSxJ0Yryg6Gr3Wmq33TZZ1x9kqGsKhdM2c7JBT9pj5QYYF0bmXLw3J83u/sL6A3xhbmbg8IUlex/NwjZuhO/b0G0dgAp+5I/7QOBrTFxYMkXc/HZEWB+q2pXQUY/GeVqduh5d/rRlHTzxxzzxaEhxijjuC9SiBT1KxkD1L2kJYn3ECEZ2Uor1FhOLt5uSr5E1U6nOQYbq/eetmhF81R+JNuT+yDbVxaO8JT0XQHwV3V7zr/W5Uc1tVf+DiYCapn3gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=showadenko.com; dmarc=pass action=none
+ header.from=showadenko.com; dkim=pass header.d=showadenko.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=showadenko.onmicrosoft.com; s=selector2-showadenko-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j3h1imPj+ck6xo0PmFIHiI7WOfpZJ7WL/JFy83kBwB8=;
+ b=YPnRTtq/EH6t7v4VuQUllysHt3Ei9xAK3nO17YxbTN+TqWbNxJIOw4mOz8cMK3yfYnVn1BQka0N+LXBiPYYHQKeHxDxVCt2lY7noXASLGgVqmCV+MeZfellLfyjTwvnh6ULZYxCUpUc57W6uJasC1vq6xWYa9EirpahAvLZ2ujA=
+Received: from TYYPR01MB6991.jpnprd01.prod.outlook.com (2603:1096:400:d9::12)
+ by OSAPR01MB5266.jpnprd01.prod.outlook.com (2603:1096:604:59::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.12; Thu, 5 May
+ 2022 13:19:48 +0000
+Received: from TYYPR01MB6991.jpnprd01.prod.outlook.com
+ ([fe80::4ca9:9202:b855:d069]) by TYYPR01MB6991.jpnprd01.prod.outlook.com
+ ([fe80::4ca9:9202:b855:d069%4]) with mapi id 15.20.5206.027; Thu, 5 May 2022
+ 13:19:48 +0000
+From: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ
+	<vikram.singhrathore.xmtqq@showadenko.com>
+To: Shishir Gupta <sg@risusventures.com>
+CC: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT
+	<mandeep.singh.xmhjt@showadenko.com>
+Subject:
+ =?utf-8?B?UkU6IE5FVyBPUkRFUiAjIEFKRlBPLTIyLTAwMDE1NiBmb3IgTUFZ4oCZMjI=?=
+Thread-Topic:
+ =?utf-8?B?TkVXIE9SREVSICMgQUpGUE8tMjItMDAwMTU2IGZvciBNQVnigJkyMg==?=
+Thread-Index:
+ AdhO9ZlVguujirimSfSegNbnVVWGPwA+y/egABaf4AAAC2WRQAKf9LGrAABCdAABKtsDIABCEcaAAAr4QbA=
+Importance: high
+X-Priority: 1
+Return-Receipt-To: <vikram.singhrathore.xmtqq@showadenko.com>
+Date: Thu, 5 May 2022 13:19:48 +0000
+Message-ID:
+ <TYYPR01MB699188A20721746037C5CB45DBC29@TYYPR01MB6991.jpnprd01.prod.outlook.com>
+References:
+ <OSBPR01MB21035E55AC24C205B165CEF8D2EC9@OSBPR01MB2103.jpnprd01.prod.outlook.com>
+ <OSBPR01MB210344634975EA0F61309E45D2EF9@OSBPR01MB2103.jpnprd01.prod.outlook.com>
+ <88B419B4-52B2-47E7-9F2D-ADC937B0CD9C@risusventures.com>
+ <OSBPR01MB2103FE7883D4327ECD18519CD2EE9@OSBPR01MB2103.jpnprd01.prod.outlook.com>
+ <BM1PR01MB2882C62908AE3C2E0091C940D7FD9@BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM>
+ <TYYPR01MB6991EC7E2B2D98E11B4C1B44DBFD9@TYYPR01MB6991.jpnprd01.prod.outlook.com>
+ <OSBPR01MB21031A9F1A7106BE6CB69015D2C39@OSBPR01MB2103.jpnprd01.prod.outlook.com>
+ <6079C153-CEB3-4A14-8D21-28BE1A897417@risusventures.com>
+In-Reply-To: <6079C153-CEB3-4A14-8D21-28BE1A897417@risusventures.com>
+Accept-Language: en-IN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=showadenko.com;
+X-MS-Office365-Filtering-Correlation-Id: 5e961546-307b-43ae-fa99-08da2e99f29c
+x-ms-traffictypediagnostic:
+ OSAPR01MB5266:EE_|MA1IND01FT004:EE_|PNYPR01MB8333:EE_
+x-microsoft-antispam-prvs:
+ <OSAPR01MB5266608023D9E3946B265138DBC29@OSAPR01MB5266.jpnprd01.prod.outlook.com>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ d13fTyXUprIePnNy5IQnE4r8SJGoF/eGtowsN4+dIMzjZKESxbxZU/nyTLqGiDCvYkxZQ5FUAIXVPV9eK8EQzznfmK5l7f6j/l8OdsqTLd9bhoO9dJeCsAro/5FNyZ1rF87HUrYPJ3Ir9LgQlfgS/hugysxzQ9ECMiiMXfZrCZ45WLkdtVg+rkqal5Oe0AcSm7AqNu1nL477RZXIYDKB5nDU9ovugltMgfBR1ajFbJybuDn3GNlgt1TW4Ci17e1H6C6fExwatId4Uk/tsXMKKoTXdrNWgfHh0j+snf8Vlpat8mQ2w4UOoZPBQ+0vk4CZGWtVviHIZaRBGOhtMDOQwpDY4+s4Ggd7Gm/p9ckKKfFjEioWPBLojlKEa3SZbOd9KBwcUejOb4pybzRPkR7XFSRWXRslAdciovv/fqWir5fgG7VojJnyo2/Zxddu9l16ytp2fa9/MQ13oMTjexIZSLjW2vSaATeGuuXIfCp6Efp3pYreyCePfAy93nDMOwdj81Qe/RuQj14ffPat+U12BRYZV0xBQ1XF10Oo5d56Ww9WgcxcqRJjh4M1T7qX3PjHOd1Z6NbBRaMn6G/vqjuRJlVT+PtoiElWxFxJ7S9Im3QCLyzqvJgK+8UJDLzjxHYSKdJHtCI2SmUULkGvJOBi89s9r1KPeZGFiIQNsVosdiby1hF7Ta815fR3A+sH26hS3OPui5+Citc/Wp1ywbmU0CvQcgjdZxvrvXaBt+xbCT0lpwa1LhSwNv9I4cjbSPUIa3+TDLPMBT8QvL6jHmhqmcaDJ+R1ScI+516RSwG57oQ=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6991.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230001)(366004)(53546011)(122000001)(6506007)(5660300002)(99936003)(6916009)(166002)(38100700002)(38070700005)(71200400001)(107886003)(508600001)(66476007)(66556008)(83380400001)(9686003)(186003)(52536014)(76116006)(4326008)(2906002)(66446008)(64756008)(8936002)(26005)(66946007)(316002)(55016003)(7696005)(33656002)(66574015)(86362001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?utf-8?B?bFRndkdESzNsL0lZOEhUdkF2cUJhUHZ0TGF2MjVoaHNhUk1mSlh4UGh3MnFE?=
+ =?utf-8?B?OHRhVkY3akxWNTRGZjU4UGpIcWdKenJidXpUTkE2akN2NVdiRjBPaHdUbHlx?=
+ =?utf-8?B?V3ZscTRtT2k5WEIvMzFndUdGbDltN1RBVmZRM2lTWXE1NEFWVENTeHRpK2xk?=
+ =?utf-8?B?SWhHczR5YUZoYXFkdkN5elBHeHp2V2szbUVGMlFxckNaUHdYWUJTdlB2VE5S?=
+ =?utf-8?B?U0YwTGp6UTZiNEhOeENFTSs5UmlVYWJrTitnMW9vVDBGVVRUQ010WjJ1aUVD?=
+ =?utf-8?B?MG9uc0pEdmdVWHc1ckw2N1ZlUG1qSFpwRzZzWVlMdmc5ZTZPR0o2eVFDd3Jr?=
+ =?utf-8?B?dzcyZllLNzM4ZDV1ZkwxbXFLSGVTZ25MZllFQzZnQ29WdlpwdjZIdUdsWUVp?=
+ =?utf-8?B?Qlpkd2VkYWFzVE5vTS81aUplWlpQOVp6d1o2dDZKRmlVWFlUY3BrZDEwUG1I?=
+ =?utf-8?B?M3VaODI3czUwVG5LNlZNTDVEOUwrUHVrZTBUdE81Y2xEdlJ5VEpINnlZZEZu?=
+ =?utf-8?B?K3JNOHRJWSt1S1A4bmE5emFWc09jenlnWm9oZXRzbldiTTZzQit4T3E1czd1?=
+ =?utf-8?B?ZkU2dnRKTnpITHhPQnNTNTdxUjd5bnJtdU41bzNuRHl4WFR2SlRWV1NTZVl5?=
+ =?utf-8?B?RmtOSDM0SVoxWTM5c1ZaY2RaTDB1enR0YUpndHRNQXhyWTN3K3c4VzVJbUZp?=
+ =?utf-8?B?NnZIT29haldlOHlLcW43TzhiNkNWdnpTbDVKZVVQUkIzc0U0ZGZldWFkQms3?=
+ =?utf-8?B?alUzTVFFckU3cFB0YW9USXFmRlhScmx2MmREaWRMTUFib0o0VnRrM3lsK25p?=
+ =?utf-8?B?ekcreWo4OWVhVk1yNzB0TlQ2ZERxcW1iWUo5NnBjVTJieUhNbGVsclJmOTNR?=
+ =?utf-8?B?RFhsZElORTROOVVEY2tEa3NRbENtcHZwR3JSU2R0YUJmU1RCZGhlWFozUlo1?=
+ =?utf-8?B?dGd3TUdtYzVZakgvb2hRaU9tMjRSTlkvbjFYU1BDcm80bkQvS2MzViswYzNm?=
+ =?utf-8?B?Q2NReThWOSt6a2xSRHBxVmdlMkI0eEZrekxLSmgvNTY4bmRXRXUwYUZOTE1V?=
+ =?utf-8?B?dG1KT3I3MC94T2NxM0pFS0xFSE1aTjdLQXU3UzFSSzAvNzJvMFYrWWw1VVg2?=
+ =?utf-8?B?Z1ZSVVhLS1pNTEhkK0QrWWJLakNOUzFJSUd3am5McXdoR3c0ZkU4YUpZRTJS?=
+ =?utf-8?B?ajZ6RnJ0ekl0OUlBMHZkMlUwK1NHcFVqNXI2bVhjNDgyQloxM2MwcmFPU1g2?=
+ =?utf-8?B?WVNiaitob28zbnIzTHh2enEvM1FUUFFJRzI2bTh6WGszSTVLRE92WU9KRE9u?=
+ =?utf-8?B?UHQ1WkM5eDg5ZSs4aFdIdkF5QWRIRzl3U3hiQklrampnRTI0YnJOOHlQYm9S?=
+ =?utf-8?B?V0pFQmxnSnIwSS9OTG1PSWcvNFVPY1Yya0V4UGNENWlvemZRQzdnczlsNTVM?=
+ =?utf-8?B?cU1LV2tKcU9XS1JtMGdROFNVNTRSTk9VdFdwOENkZDdScEljY1Fucng4L1di?=
+ =?utf-8?B?ZmwyQ05wdEhPSDRueVR4NktJU3VQMWwwVE0xOFRxOWJHYTVCeGtHUVY3cWNp?=
+ =?utf-8?B?clc0ZXVqNU1wN0VESTZoK21RQkFXL2JHd0R0TGNReGRKaU9lUWdEcnhuQzB5?=
+ =?utf-8?B?WnVFWVNCT3dIZ1VtZXd4WHlTL2dRMkNLM1E0S0FlSWRZSnQ4TEtSTk9UV0p6?=
+ =?utf-8?B?Mll1di83WkFxcTlMS1pKV1F5OEhPWndxWDFJYU96VXZKZmxoT3BwTU5Bd2dl?=
+ =?utf-8?B?VzY1cUZCdk85ZFVna1hIczMyT1JaZE1SamxoWHY2dUlFRml1bDZnSzVaYjM3?=
+ =?utf-8?B?d2trWS9naWFRUFRJUHN1R2VCSDMxa0hDcFpNRmhpQmpjMGVyd1BKaXNmNElQ?=
+ =?utf-8?B?cjhDdzY0L0ZPWXMraW8wMm1nRTJPS3R3b2V2Y2ZLcEZsK0xaaHFaSm5pRHN0?=
+ =?utf-8?B?NzlVczNYVDdJQm54UDVUcEV4VlVKR3Qvb295aGVxYUlIQU9KVHl4RkZGMHRU?=
+ =?utf-8?B?Y3BnOFNPdXV4VjNBcWN1ZXE3ejZnV0dKcU1sdXFKaTkxdFcyWHV4enl1UHhi?=
+ =?utf-8?B?S1BtN2VjT1NpYVdpaXVSSDhnZU1ERkEvN29xMFNZck1ZWTJVZTJEQmw5TnJT?=
+ =?utf-8?B?cGsrSVhpaHk1M1E5a09uNXBkUDliTnNtdG55Sy8ySENsNk5DdXZoY2FFMkwr?=
+ =?utf-8?B?T01TeGpMdjRzMlFzdUp3bTFkb09HYlBoWXNhajgrWUhjTFl1OHc1N0V3bGdR?=
+ =?utf-8?B?Y24vM0M2M2tEZWFoeStrMWZlcmc5NVhWL2ZmSDAvK3MvaHRUS0Frc0NWZVNx?=
+ =?utf-8?B?emM3T2Q4OHdvNzlhY1RyTEpwa00rU05aczBJakR5Wmp0dEsrcWdKQ0VTdlhz?=
+ =?utf-8?Q?ISvDmIIy7UylakE9wb8NjF3ho6jS2jGtYrr05XaoojiWI?=
+X-MS-Exchange-AntiSpam-MessageData-Original-1: pCnCllACcxyong==
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSAPR01MB5266
+Return-Path: vikram.singhrathore.xmtqq@showadenko.com
+X-MS-Exchange-Organization-ExpirationStartTime: 05 May 2022 13:19:56.1594
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 5e961546-307b-43ae-fa99-08da2e99f29c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e434ffe4-3895-4b53-a704-9da6180d3438:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ MA1IND01FT004.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ MA1IND01FT004.eop-IND01.prod.protection.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ MA1IND01FT004.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ c0acdeba-826a-431e-aa47-08da2e99ee0f
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:104.47.23.175;CTRY:JP;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:SFE;H:JPN01-TYC-obe.outbound.protection.outlook.com;PTR:mail-tycjpn01lp2175.outbound.protection.outlook.com;CAT:NONE;SFS:;DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2022 13:19:55.8938
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e961546-307b-43ae-fa99-08da2e99f29c
+X-MS-Exchange-CrossTenant-Id: e434ffe4-3895-4b53-a704-9da6180d3438
+X-MS-Exchange-CrossTenant-AuthSource:
+ MA1IND01FT004.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNYPR01MB8333
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.9964743
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5206.027
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:1;ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506458)(944626604)(920097)(820001)(250001)(410001)(930097);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?JW0xkW7b8feLDcUekDDeBrl6xkvNeGbiCwLFYbloNWxBD4E3ICezht513WLA?=
+ =?us-ascii?Q?r0xLv3oUVPm9SK++hiCI37s+TfjSBi09VQdr6UmbLeaCIQn3nl7uwAO2Y0Ux?=
+ =?us-ascii?Q?isMnmU8UhIw/ncOwfMKq5UZ16eatW5dLanS4GUJZRcRTi73yl77aaQ7tpilR?=
+ =?us-ascii?Q?T4Z69+QTI4siQBCmNdOI0NxHUrMEQmEkhuTH7kIExXx5Tw5tQqqUUjkAgW2e?=
+ =?us-ascii?Q?U4BaEDALkuGQD2jB3iUArGVcIhGWKqvW6Gax7v4TubEvxKWEgKgRpwzAkjb1?=
+ =?us-ascii?Q?y7HKw85iccZuB7JjzKdhc0dxjxqsNrekOjD2PVn+x13dqEd+c0ms0QdD76BH?=
+ =?us-ascii?Q?osic4bu6gkbe510sPkl0GteGYb9GmViNw5oFKVozCMD3ZrT7DPUR/ZLGauA1?=
+ =?us-ascii?Q?FzsqOrWsf7G2z6fo8m81TZkW+nYZSBij7hNf9Q+jv9R+xEbrrjCmJbOehlJt?=
+ =?us-ascii?Q?ku9VgG2n/9BFSYNLEwm7k0JptE1ALyvI6A/hQEjOt4I3uUIe20b8YNlfHrO3?=
+ =?us-ascii?Q?2+QPoP0dJGJfbnjYPEIWMcI4dzRReyDTzRREcVGEW5p8QQK1CTAHigwC4WbS?=
+ =?us-ascii?Q?kjV6CSTRDO3uImxJM/a/Xz3u9nQuUj0jBkjyjwdSvP7LUj+IfKVleS/PFAQ3?=
+ =?us-ascii?Q?CNZIK79YrJS0De+MlEV4bugBg9MCDZOHJ7EHrcPrZP1jUsvaS8INMhm49Z5I?=
+ =?us-ascii?Q?DE9DrTjAgSpJoHcy3eBxHD/fYLmHrBbIvxmOOImMVQZkuLChzXi92gpeUDwq?=
+ =?us-ascii?Q?fx2jGsOwuc/rvN61qt+Kjoa3mjiKGgfw1uU5Q2smu8dIrViaZRSpHcFwK/P6?=
+ =?us-ascii?Q?u7yJqzWie7yeufJhLn1wr93OIPq4v71lHeFP1v7S6AmEKYujJp0kYDHMU0Xa?=
+ =?us-ascii?Q?gkepo5WL84aQ0EN5avOexve/zsCb0KCNNHk59iaJhslK5udCMg+P1xVDMxcV?=
+ =?us-ascii?Q?WGeNT1eHeiQsO1wagWk5KuIxw0KxRExlFnjrpowR1bzqXX3q3msq83q2t9eV?=
+ =?us-ascii?Q?tJV/EyQn5369Rb6RrWFgCc02YXwsz4ThNRNOr6JYw9kwXzjh2FkoGXzAsprD?=
+ =?us-ascii?Q?dyPUqn+a3RcVQqL9JM2vD48UDomv2VG0vXEXAAi8WDM+3uVgs5DnynfB6tDd?=
+ =?us-ascii?Q?wDu0NtPKlXvyoxUxw1MUt2Jj2pyUYhNKeV8gnlBr9K0rryLhw3EUTQSNHEG7?=
+ =?us-ascii?Q?BpBaV/K8vfIZSadpf6nyXBlnZBNThoPxFIUryrAA7MpHxqWJBDFcr8pMrGte?=
+ =?us-ascii?Q?BJAGONiTn4EIAVKHoyCLOaocLx/yBfrUI/KJgK0/AeKOcYKCWNNHw/RVbNSf?=
+ =?us-ascii?Q?AfKgeJ6uSgE1Jm4/lMk0U1yu4BMIQxA3qkYUEtxkz4GCD9p8JlKdPZu25wsk?=
+ =?us-ascii?Q?dIT9vmBx4MWkaFktqMmmItsuk0oehydYQOaDtacezwDioyVT85fBI5rnhcxI?=
+ =?us-ascii?Q?7cYfD+B837gug/x6nDYtXH9cCcyDExQNbfuuSFt8UyjkAzU5p+P2LDgqewXM?=
+ =?us-ascii?Q?+GX/KHCa7t+wy5QCU/Dml6xIjxxX0tVCKeMrPKRGRRSZWtDOiVe+VXXJ2wV6?=
+ =?us-ascii?Q?6RN4AnBcvSI7kt+h7oKlk+BcLmKp4fEYEhfDnB0pNDakQ4JmlHl69vJKUVBt?=
+ =?us-ascii?Q?xyXflAyXlLBfbp7A4ueo5oYbS0W2DHJEsQNVJU8eXQ7Y90ofnefGtyJi+mPO?=
+ =?us-ascii?Q?SRvRJtADQZ9VUGwtv6NE6RDKzw/C+ffOr+ETeWqZOQ2uxVGPqM4QSJyDWk+z?=
+ =?us-ascii?Q?6lwLFHiHigB2YyhxzjPsfvPP16+rJmQUuby0oZv02tZ5djAISoh/Gdt1I+s+?=
+ =?us-ascii?Q?OrjnR9dFDs3eJUAOte9dl/nsy58eb7E/CyQJlDwTIEykZTfru0gDfMSKBFzM?=
+ =?us-ascii?Q?VXHB3H1JU9T4vqPQ7LsEkFvCQgFdtYW2N9UO9XUEkkSlO7a62DQbwTX4AM8a?=
+Content-type: multipart/mixed;
+	boundary="B_3734688101_1444073538"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3734688101_1444073538
+Content-type: multipart/related;
+	boundary="B_3734688101_1609341825"
+
+--B_3734688101_1609341825
+Content-type: multipart/alternative;
+	boundary="B_3734688101_4212230388"
+
+
+--B_3734688101_4212230388
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+Dear Gupta ji,
+
+=20
+
+Thank you for your time over phone.
+
+=20
+
+As discussed we are anticipating some increased volumes from MSIL Jul=E2=80=9922 =
+onwards and accordingly we need your support to fulfill the customer require=
+ment.
+
+=20
+
+Bellow are the additional volumes, kindly check & confirm if can be support=
+ed along with revised collection schedule.
+
+=20
+
+RB220 ELS Roxul 1000 =E2=80=93 1600 kgs (4 Pallets)
+
+RB250 Roxul 1000 =E2=80=93 625 kgs (1 pallet)
+
+RB240 Roxul 1000 -  1200 kgs (3 pallets)
+
+=20
+
+Kindly check & confirm to place 20=E2=80=99 container accordingly.
+
+=20
+
+Best Regards,
+
+Vikram Singh Rathore
+
+=20
+
+Mobile # +91 9783809946=20
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>=20
+Sent: 05 May 2022 18:25
+To: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT <mandeep.singh.xmhjt@showadenko.=
+com>
+Cc: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhrathore=
+.xmtqq@showadenko.com>
+Subject: Re: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Sir,
+
+=20
+
+Due to production re-scheduling, we can make the order available for collec=
+tion on May 18.
+
+=20
+
+Please find the collection details attached.
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambica Vihar,
+
+Delhi =E2=80=93 1100087
+
+=20
+
+Ph (M):   +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: "Allied JB Purchase - Mr. Mandeep" <mandeep.singh.xmhjt@showadenko.co=
+m>
+Date: Wednesday, 4 May 2022 at 16:25
+To: Shishir Gupta <sg@risusventures.com>
+Cc: "Allied JB A - Purchase - Mr. Vikram Rathore" <vikram.singhrathore.xmtq=
+q@showadenko.com>
+Subject: RE: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Shishir San,
+
+=20
+
+Please find attached payment receipt.
+
+Kindly confirm the same and share your contact person detail.
+
+=20
+
+=20
+
+Please find below agent detail. kindly contact with agent and place booking=
+ to avoid any delay.
+
+=20
+
+=20
+
+i.A. Tim Wulf=20
+Seafreight Export LCL Manager=20
+
+TCI International Logistics GmbH=20
+
+Afrikastra=C3=9Fe 2, 20457 Hamburg, Germany=20
+T: +49 40 41364-410 | F: +49 40 41364-456-410
+t.wulf@mytcigroup.com | www.myTCIgroup.com=20
+Hamburg =E2=80=93 Bayreuth =E2=80=93 Biberach =E2=80=93 Dortmund =E2=80=93 Frankfurt=20
+Leipzig =E2=80=93 Munich =E2=80=93 Le Havre =E2=80=93 Rotterdam =E2=80=93 Mexico City
+Atlanta =E2=80=93 Hai Phong =E2=80=93 Hanoi =E2=80=93 Ho Chi Minh =E2=80=93 Hong Kong=20
+Ningbo =E2=80=93 Shanghai =E2=80=93 Shenzhen =E2=80=93 Xiamen=20
+
+Plus 156 exclusive logistics partners at all important destinations around =
+the globe!=20
+
+=20
+
+=20
+
+=20
+
+Thanks & Regards
+
+Mandeep Singh
+
+Assistant Manager (Purchase)
+
+=20
+
+Allied JB Friction Pvt. Ltd.,
+
+SP-2, 83 & 84, New Industrial Complex,
+
+Japanese Zone, Majrakath, Neemrana,
+
+Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705
+
+Mob. +91 9587892371
+
+=20
+
+From: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhratho=
+re.xmtqq@showadenko.com>=20
+Sent: 28 April 2022 17:46
+To: Shishir Gupta <sg@risusventures.com>; MANDEEP SINGH XMHJT/Mandeep Singh=
+XMHJT <mandeep.singh.xmhjt@showadenko.com>
+Subject: RE: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Gupta ji,
+
+=20
+
+Payment will be processed on 2nd or 3rd May=E2=80=9922
+
+=20
+
+Best Regards,
+
+Vikram Singh Rathore
+
+=20
+
+Mobile # +91 9783809946=20
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>=20
+Sent: 28 April 2022 17:41
+To: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT <mandeep.singh.xmhjt@showadenko.=
+com>
+Cc: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhrathore=
+.xmtqq@showadenko.com>
+Subject: Re: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Sir,
+
+=20
+
+It is going to be very late if the payment is processed in May wk 1.
+
+=20
+
+Kindly arrange to process the payment immediately as we have to provide col=
+lection details =E2=80=93 they can only be provided once the payment is received i=
+n our account.
+
+Logistics chain is under a lot of pressure nowadays and most of the forward=
+ers are not able to arrange timely pickup of cargo.
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambica Vihar,
+
+Delhi =E2=80=93 1100087
+
+=20
+
+Ph (M):   +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT <mandeep.singh.xmhjt@showadenk=
+o.com>
+Date: Friday, 15 April 2022 at 08:59
+To: Shishir Gupta <sg@risusventures.com>
+Cc: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhrathore=
+.xmtqq@showadenko.com>
+Subject: RE: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+Dear Shishir San,
+
+=20
+
+Thanks for share PI.=20
+
+We will process payment in 1st week of May=E2=80=9922. In mean time please proces=
+s our order for ETD: 11-05-2022.
+
+=20
+
+=20
+
+Thanks & Regards
+
+Mandeep Singh
+
+Assistant Manager (Purchase)
+
+=20
+
+Allied JB Friction Pvt. Ltd.,
+
+SP-2, 83 & 84, New Industrial Complex,
+
+Japanese Zone, Majrakath, Neemrana,
+
+Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705
+
+Mob. +91 9587892371
+
+=20
+
+From: Shishir Gupta <sg@risusventures.com>=20
+Sent: 14 April 2022 22:02
+To: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT <mandeep.singh.xmhjt@showadenko.=
+com>
+Cc: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhrathore=
+.xmtqq@showadenko.com>
+Subject: Re: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Sir,
+
+=20
+
+Please find attached PI for your order.
+
+=20
+
+Best regards,
+
+Shishir Gupta
+
+=20
+
+Risus Ventures (OPC) Pvt. Ltd.,
+
+292, Ambica Vihar,
+
+Delhi =E2=80=93 1100087
+
+=20
+
+Ph (M):   +91 9810299618
+
+Web:      www.risusventures.com
+
+=20
+
+From: "Allied JB Purchase - Mr. Mandeep" <mandeep.singh.xmhjt@showadenko.co=
+m>
+Date: Thursday, 14 April 2022 at 16:44
+To: Shishir Gupta <sg@risusventures.com>
+Cc: "Allied JB A - Purchase - Mr. Vikram Rathore" <vikram.singhrathore.xmtq=
+q@showadenko.com>
+Subject: RE: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Shishir San,
+
+=20
+
+Kindly acknowledge below mail order. Also share PI for timely payment proce=
+ss.
+
+=20
+
+=20
+
+Thanks & Regards
+
+Mandeep Singh
+
+Assistant Manager (Purchase)
+
+=20
+
+Allied JB Friction Pvt. Ltd.,
+
+SP-2, 83 & 84, New Industrial Complex,
+
+Japanese Zone, Majrakath, Neemrana,
+
+Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705
+
+Mob. +91 9587892371
+
+=20
+
+From: MANDEEP SINGH XMHJT/Mandeep SinghXMHJT=20
+Sent: 13 April 2022 10:47
+To: 'Shishir Gupta' <sg@risusventures.com>
+Cc: VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ <vikram.singhrathore=
+.xmtqq@showadenko.com>
+Subject: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922
+
+=20
+
+Dear Shishir San,
+
+=20
+
+Thanks for your all-time support to AJF.
+
+=20
+
+Please find attached our new PO # AJFPO-22-000156 for MAY=E2=80=9922 ocean shipme=
+nt (LCL).=20
+
+=20
+
+Kindly acknowledge the receipt and provide us PI for timely processing of p=
+ayment.
+
+=20
+
+ETD: 11th MAY2022
+
+=20
+
+=20
+
+Thanks & Regards
+
+Mandeep Singh
+
+Assistant Manager (Purchase)
+
+=20
+
+Allied JB Friction Pvt. Ltd.,
+
+SP-2, 83 & 84, New Industrial Complex,
+
+Japanese Zone, Majrakath, Neemrana,
+
+Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705
+
+Mob. +91 9587892371
+
+=20
+
+
+--B_3734688101_4212230388
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsof=
+t-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" xmlns:m=
+=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org=
+/TR/REC-html40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><meta na=
+me=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)"><!--[if !mso]><=
+style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+p.xmsonormal, li.xmsonormal, div.xmsonormal
+	{mso-style-name:x_msonormal;
+	margin:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+span.wordsection1Char
+	{mso-style-name:"wordsection1 Char";
+	mso-style-priority:99;
+	mso-style-link:"wordsection1\,m_\,9034989704951977135gmail";
+	font-family:"Calibri",sans-serif;}
+p.wordsection1, li.wordsection1, div.wordsection1
+	{mso-style-name:"wordsection1\,m_\,9034989704951977135gmail";
+	mso-style-priority:99;
+	mso-style-link:"wordsection1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle23
+	{mso-style-type:personal-reply;
+	font-family:"Verdana",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3D"EN-IN" link=3D"#0563C1" =
+vlink=3D"#954F72" style=3D"word-wrap:break-word"><div class=3D"WordSection1"><p cl=
+ass=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot=
+;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">Dear Gupta ji,<o:p></o=
+:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0p=
+t;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US"><o:=
+p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font=
+-size:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language=
+:EN-US">Thank you for your time over phone.<o:p></o:p></span></p><p class=3D"M=
+soNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot;Verda=
+na&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></p>=
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:=
+&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">As discussed we a=
+re anticipating some increased volumes from MSIL Jul=E2=80=9922 onwards and accord=
+ingly we need your support to fulfill the customer requirement.<o:p></o:p></=
+span></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;fon=
+t-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nb=
+sp;</o:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size=
+:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-U=
+S">Bellow are the additional volumes, kindly check &amp; confirm if can be s=
+upported along with revised collection schedule.<o:p></o:p></span></p><p cla=
+ss=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot;=
+Verdana&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span=
+></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-fa=
+mily:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">RB220 ELS Ro=
+xul 1000 =E2=80=93 1600 kgs (4 Pallets)<o:p></o:p></span></p><p class=3D"MsoNormal">=
+<span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot;Verdana&quot;,s=
+ans-serif;mso-fareast-language:EN-US">RB250 Roxul 1000 =E2=80=93 625 kgs (1 pallet=
+)<o:p></o:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-s=
+ize:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:E=
+N-US">RB240 Roxul 1000 - &nbsp;1200 kgs (3 pallets)<o:p></o:p></span></p><p =
+class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&qu=
+ot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></s=
+pan></p><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font=
+-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">Kindly ch=
+eck &amp; confirm to place 20=E2=80=99 container accordingly.<o:p></o:p></span></p=
+><p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family=
+:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p=
+></span></p><div><div><div><div><p class=3D"MsoNormal"><i><span style=3D"font-si=
+ze:12.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#002060">Best Reg=
+ards,<o:p></o:p></span></i></p><p class=3D"MsoNormal"><span style=3D"font-size:1=
+2.0pt;font-family:&quot;Verdana&quot;,sans-serif">Vikram Singh Rathore</span=
+><span style=3D"font-size:11.0pt"><o:p></o:p></span></p><p class=3D"MsoNormal"><=
+span style=3D"font-size:12.0pt;font-family:&quot;Verdana&quot;,sans-serif;colo=
+r:#002060"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#002060">Mobi=
+le # +91 9783809946</span><span style=3D"font-size:11.0pt;font-family:&quot;He=
+lvetica&quot;,sans-serif;color:black">&nbsp;</span><span style=3D"font-size:12=
+.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:#002060"><o:p></o:p></=
+span></p></div></div></div></div><p class=3D"MsoNormal"><span lang=3D"EN-US" sty=
+le=3D"font-size:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-=
+language:EN-US"><o:p>&nbsp;</o:p></span></p><div><div style=3D"border:none;bor=
+der-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal">=
+<b><span lang=3D"EN-US" style=3D"font-size:11.0pt">From:</span></b><span lang=3D"E=
+N-US" style=3D"font-size:11.0pt"> Shishir Gupta &lt;sg@risusventures.com&gt; <=
+br><b>Sent:</b> 05 May 2022 18:25<br><b>To:</b> MANDEEP SINGH XMHJT/Mandeep =
+SinghXMHJT &lt;mandeep.singh.xmhjt@showadenko.com&gt;<br><b>Cc:</b> VIKRAM S=
+INGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ &lt;vikram.singhrathore.xmtqq@sho=
+wadenko.com&gt;<br><b>Subject:</b> Re: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=
+=9922<o:p></o:p></span></p></div></div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p><=
+/p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;=
+mso-fareast-language:EN-US">Dear Sir,<o:p></o:p></span></p><p class=3D"wordsec=
+tion1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language=
+:EN-US"><o:p>&nbsp;</o:p></span></p><p class=3D"wordsection1" style=3D"margin:0c=
+m"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">Due to producti=
+on re-scheduling, we can make the order available for collection on May 18.<=
+o:p></o:p></span></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D=
+"font-size:11.0pt;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></p><p=
+ class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-f=
+areast-language:EN-US">Please find the collection details attached.<o:p></o:=
+p></span></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-si=
+ze:11.0pt;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></p><div><div>=
+<div><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0p=
+t">Best regards,<o:p></o:p></span></p><p class=3D"wordsection1" style=3D"margin:=
+0cm"><span style=3D"font-size:11.0pt">Shishir Gupta<o:p></o:p></span></p><p cl=
+ass=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt"><o:p>&n=
+bsp;</o:p></span></p><p class=3D"wordsection1" style=3D"margin:0cm">Risus Ventur=
+es (OPC) Pvt. Ltd.,<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"=
+>292, Ambica Vihar,<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"=
+>Delhi =E2=80=93 1100087<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">=
+<o:p>&nbsp;</o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">Ph (M):&nbsp=
+;&nbsp; +91 9810299618<o:p></o:p></p></div><div><p class=3D"wordsection1" styl=
+e=3D"margin:0cm">Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=3D"http://www.risusv=
+entures.com">www.risusventures.com</a><span style=3D"font-size:11.0pt;mso-fare=
+ast-language:EN-US"><o:p></o:p></span></p></div></div></div><p class=3D"wordse=
+ction1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-languag=
+e:EN-US"><o:p>&nbsp;</o:p></span></p><div style=3D"border:none;border-top:soli=
+d #B5C4DF 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsection1" style=3D"ma=
+rgin:0cm"><b><span style=3D"font-size:12.0pt;color:black">From: </span></b><sp=
+an style=3D"font-size:12.0pt;color:black">&quot;Allied JB Purchase - Mr. Mande=
+ep&quot; &lt;<a href=3D"mailto:mandeep.singh.xmhjt@showadenko.com">mandeep.sin=
+gh.xmhjt@showadenko.com</a>&gt;<br><b>Date: </b>Wednesday, 4 May 2022 at 16:=
+25<br><b>To: </b>Shishir Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@=
+risusventures.com</a>&gt;<br><b>Cc: </b>&quot;Allied JB A - Purchase - Mr. V=
+ikram Rathore&quot; &lt;<a href=3D"mailto:vikram.singhrathore.xmtqq@showadenko=
+.com">vikram.singhrathore.xmtqq@showadenko.com</a>&gt;<br><b>Subject: </b>RE=
+: NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922<o:p></o:p></span></p></div><div><=
+p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt"><o:=
+p>&nbsp;</o:p></span></p></div><p class=3D"wordsection1" style=3D"margin:0cm"><s=
+pan style=3D"font-size:11.0pt;mso-fareast-language:EN-US">Dear Shishir San,</s=
+pan><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"f=
+ont-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><p c=
+lass=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-far=
+east-language:EN-US">Please find attached payment receipt.</span><o:p></o:p>=
+</p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt=
+;mso-fareast-language:EN-US">Kindly confirm the same and share your contact =
+person detail.</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0c=
+m"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o=
+:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-si=
+ze:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><p class=3D"=
+wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-l=
+anguage:EN-US">Please find below agent detail. kindly contact with agent and=
+ place booking to avoid any delay.</span><o:p></o:p></p><p class=3D"wordsectio=
+n1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN=
+-US">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">=
+<span style=3D"color:#1F497D">&nbsp;</span><o:p></o:p></p><table class=3D"MsoNor=
+malTable" border=3D"0" cellspacing=3D"3" cellpadding=3D"0"><tbody><tr style=3D"heigh=
+t:1.0cm"><td rowspan=3D"2" style=3D"padding:.75pt .75pt .75pt .75pt;height:1.0cm=
+"><p class=3D"MsoNormal"><span lang=3D"DE" style=3D"font-family:&quot;Arial&quot;,=
+sans-serif;color:black;mso-fareast-language:DE">i.A. Tim Wulf <br></span><sp=
+an lang=3D"DE" style=3D"font-size:7.0pt;font-family:&quot;Arial&quot;,sans-serif=
+;color:black;mso-fareast-language:DE">Seafreight Export LCL Manager </span><=
+span lang=3D"DE" style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quo=
+t;,serif;color:black;mso-fareast-language:DE"><br><br></span><span style=3D"fo=
+nt-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso=
+-fareast-language:DE"><img border=3D"0" width=3D"120" height=3D"150" style=3D"width:=
+1.25in;height:1.5666in" id=3D"Picture_x0020_1" src=3D"cid:image001.png@01D860B0.=
+58C55E70"></span><o:p></o:p></p></td><td width=3D"436" style=3D"width:327.15pt;p=
+adding:.75pt .75pt .75pt 15.0pt;height:1.0cm"><p class=3D"MsoNormal" style=3D"ms=
+o-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b><span style=3D"font-size:=
+9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#70162A;mso-fareast-lan=
+guage:DE">TCI International Logistics GmbH <br></span></b><span style=3D"font-=
+size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-fa=
+reast-language:DE"><br></span><span style=3D"font-size:9.0pt;font-family:&quot=
+;Arial&quot;,sans-serif;color:black;mso-fareast-language:DE">Afrikastra=C3=9Fe 2=
+, 20457 Hamburg, Germany <br>T: +49 40 41364-410&nbsp;| F: +49 40 41364-456-=
+410<br><a href=3D"mailto:t.wulf@mytcigroup.com">t.wulf@mytcigroup.com</a> | <a=
+ href=3D"http://www.myTCIgroup.com">www.myTCIgroup.com</a> </span><o:p></o:p><=
+/p></td></tr><tr style=3D"height:37.2pt"><td style=3D"padding:.75pt .75pt .75pt =
+15.0pt;height:37.2pt"><p class=3D"MsoNormal"><b><span style=3D"font-size:8.0pt;f=
+ont-family:&quot;Arial&quot;,sans-serif;color:#70162A;mso-fareast-language:D=
+E">Hamburg =E2=80=93 Bayreuth =E2=80=93 Biberach =E2=80=93 Dortmund =E2=80=93 Frankfurt <br>Leipzig =
+=E2=80=93 Munich =E2=80=93 Le Havre =E2=80=93 Rotterdam =E2=80=93 Mexico City<br>Atlanta =E2=80=93 Hai Pho=
+ng =E2=80=93 Hanoi =E2=80=93 Ho Chi Minh =E2=80=93 Hong Kong <br>Ningbo =E2=80=93 Shanghai =E2=80=93 Shenz=
+hen =E2=80=93 Xiamen <br><br>Plus 156 exclusive logistics partners at all importan=
+t destinations around the globe! </span></b><o:p></o:p></p></td></tr></tbody=
+></table><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:1=
+1.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><div><p class=3D=
+"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</spa=
+n><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"fon=
+t-size:11.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"ma=
+rgin:0cm"><span style=3D"font-size:11.0pt">Thanks &amp; Regards</span><o:p></o=
+:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.=
+0pt">Mandeep Singh</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margi=
+n:0cm"><span style=3D"font-size:11.0pt">Assistant Manager (Purchase)</span><o:=
+p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-siz=
+e:11.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:=
+0cm"><span style=3D"font-size:11.0pt">Allied JB Friction Pvt. Ltd.,</span><o:p=
+></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size=
+:11.0pt">SP-2, 83 &amp; 84, New Industrial Complex,</span><o:p></o:p></p><p =
+class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Japan=
+ese Zone, Majrakath, Neemrana,</span><o:p></o:p></p><p class=3D"wordsection1" =
+style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Distt =E2=80=93 Alwar, Rajasthan=
+ =E2=80=93 301705</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">=
+<span style=3D"font-size:11.0pt">Mob. +91 9587892371</span><o:p></o:p></p></di=
+v><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;m=
+so-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><div><div style=3D"bord=
+er:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"=
+wordsection1" style=3D"margin:0cm"><b><span lang=3D"EN-US" style=3D"font-size:11.0=
+pt">From:</span></b><span lang=3D"EN-US" style=3D"font-size:11.0pt"> VIKRAM SING=
+HRATHORE XMTQQ/Vikram SinghrathoreXMTQQ &lt;<a href=3D"mailto:vikram.singhrath=
+ore.xmtqq@showadenko.com">vikram.singhrathore.xmtqq@showadenko.com</a>&gt; <=
+br><b>Sent:</b> 28 April 2022 17:46<br><b>To:</b> Shishir Gupta &lt;<a href=3D=
+"mailto:sg@risusventures.com">sg@risusventures.com</a>&gt;; MANDEEP SINGH XM=
+HJT/Mandeep SinghXMHJT &lt;<a href=3D"mailto:mandeep.singh.xmhjt@showadenko.co=
+m">mandeep.singh.xmhjt@showadenko.com</a>&gt;<br><b>Subject:</b> RE: NEW ORD=
+ER # AJFPO-22-000156 for MAY=E2=80=9922</span><o:p></o:p></p></div></div><p class=3D=
+"wordsection1" style=3D"margin:0cm">&nbsp;<o:p></o:p></p><p class=3D"wordsection=
+1" style=3D"margin:0cm"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family=
+:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">Gupta ji,</span>=
+<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span lang=3D"EN-US"=
+ style=3D"font-size:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fare=
+ast-language:EN-US">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" styl=
+e=3D"margin:0cm"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot;=
+Verdana&quot;,sans-serif;mso-fareast-language:EN-US">Payment will be process=
+ed on 2<sup>nd</sup> or 3<sup>rd</sup> May=E2=80=9922</span><o:p></o:p></p><p clas=
+s=3D"wordsection1" style=3D"margin:0cm"><span lang=3D"EN-US" style=3D"font-size:11.0=
+pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-US">&n=
+bsp;</span><o:p></o:p></p><div><div><div><div><p class=3D"wordsection1" style=3D=
+"margin:0cm"><i><span style=3D"font-size:12.0pt;font-family:&quot;Verdana&quot=
+;,sans-serif;color:#002060">Best Regards,</span></i><o:p></o:p></p><p class=3D=
+"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:12.0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">Vikram Singh Rathore</span><o:p></o:p></p><p=
+ class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:12.0pt;font-=
+family:&quot;Verdana&quot;,sans-serif;color:#002060">&nbsp;</span><o:p></o:p=
+></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0p=
+t;font-family:&quot;Verdana&quot;,sans-serif;color:#002060">Mobile # +91 978=
+3809946</span><span style=3D"font-size:11.0pt;font-family:&quot;Helvetica&quot=
+;,sans-serif;color:black">&nbsp;</span><o:p></o:p></p></div></div></div></di=
+v><p class=3D"wordsection1" style=3D"margin:0cm"><span lang=3D"EN-US" style=3D"font-=
+size:11.0pt;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:=
+EN-US">&nbsp;</span><o:p></o:p></p><div><div style=3D"border:none;border-top:s=
+olid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsection1" style=3D=
+"margin:0cm"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt">From:</span></b>=
+<span lang=3D"EN-US" style=3D"font-size:11.0pt"> Shishir Gupta &lt;<a href=3D"mail=
+to:sg@risusventures.com">sg@risusventures.com</a>&gt; <br><b>Sent:</b> 28 Ap=
+ril 2022 17:41<br><b>To:</b> MANDEEP SINGH XMHJT/Mandeep SinghXMHJT &lt;<a h=
+ref=3D"mailto:mandeep.singh.xmhjt@showadenko.com">mandeep.singh.xmhjt@showaden=
+ko.com</a>&gt;<br><b>Cc:</b> VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXM=
+TQQ &lt;<a href=3D"mailto:vikram.singhrathore.xmtqq@showadenko.com">vikram.sin=
+ghrathore.xmtqq@showadenko.com</a>&gt;<br><b>Subject:</b> Re: NEW ORDER # AJ=
+FPO-22-000156 for MAY=E2=80=9922</span><o:p></o:p></p></div></div><p class=3D"wordse=
+ction1" style=3D"margin:0cm">&nbsp;<o:p></o:p></p><p class=3D"wordsection1" styl=
+e=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">Dea=
+r Sir,</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span=
+ style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p=
+></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0p=
+t;mso-fareast-language:EN-US">It is going to be very late if the payment is =
+processed in May wk 1.</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"m=
+argin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;<=
+/span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D=
+"font-size:11.0pt;mso-fareast-language:EN-US">Kindly arrange to process the =
+payment immediately as we have to provide collection details =E2=80=93 they can on=
+ly be provided once the payment is received in our account.</span><o:p></o:p=
+></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0p=
+t;mso-fareast-language:EN-US">Logistics chain is under a lot of pressure now=
+adays and most of the forwarders are not able to arrange timely pickup of ca=
+rgo.</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span s=
+tyle=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p><=
+/p><div><div><div><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"fo=
+nt-size:11.0pt">Best regards,</span><o:p></o:p></p><p class=3D"wordsection1" s=
+tyle=3D"margin:0cm"><span style=3D"font-size:11.0pt">Shishir Gupta</span><o:p></=
+o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11=
+.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"=
+>Risus Ventures (OPC) Pvt. Ltd.,<o:p></o:p></p><p class=3D"wordsection1" style=
+=3D"margin:0cm">292, Ambica Vihar,<o:p></o:p></p><p class=3D"wordsection1" style=
+=3D"margin:0cm">Delhi =E2=80=93 1100087<o:p></o:p></p><p class=3D"wordsection1" style=3D=
+"margin:0cm">&nbsp;<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"=
+>Ph (M):&nbsp;&nbsp; +91 9810299618<o:p></o:p></p></div></div></div><p class=
+=3D"wordsection1" style=3D"margin:0cm">Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a hre=
+f=3D"http://www.risusventures.com">www.risusventures.com</a><o:p></o:p></p><p =
+class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fa=
+reast-language:EN-US">&nbsp;</span><o:p></o:p></p><div style=3D"border:none;bo=
+rder-top:solid #B5C4DF 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsectio=
+n1" style=3D"mso-margin-top-alt:0cm;margin-right:0cm;margin-bottom:12.0pt;marg=
+in-left:0cm"><b><span style=3D"font-size:12.0pt;color:black">From: </span></b>=
+<span style=3D"font-size:12.0pt;color:black">MANDEEP SINGH XMHJT/Mandeep Singh=
+XMHJT &lt;<a href=3D"mailto:mandeep.singh.xmhjt@showadenko.com">mandeep.singh.=
+xmhjt@showadenko.com</a>&gt;<br><b>Date: </b>Friday, 15 April 2022 at 08:59<=
+br><b>To: </b>Shishir Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@ris=
+usventures.com</a>&gt;<br><b>Cc: </b>VIKRAM SINGHRATHORE XMTQQ/Vikram Singhr=
+athoreXMTQQ &lt;<a href=3D"mailto:vikram.singhrathore.xmtqq@showadenko.com">vi=
+kram.singhrathore.xmtqq@showadenko.com</a>&gt;<br><b>Subject: </b>RE: NEW OR=
+DER # AJFPO-22-000156 for MAY=E2=80=9922</span><o:p></o:p></p></div><p class=3D"word=
+section1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-langu=
+age:EN-US">Dear Shishir San,</span><o:p></o:p></p><p class=3D"wordsection1" st=
+yle=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&=
+nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span =
+style=3D"font-size:11.0pt;mso-fareast-language:EN-US">Thanks for share PI. </s=
+pan><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"f=
+ont-size:11.0pt;mso-fareast-language:EN-US">We will process payment in 1<sup=
+>st</sup> week of May=E2=80=9922. In mean time please process our order for ETD: 1=
+1-05-2022.</span><o:p></o:p></p><div><p class=3D"wordsection1" style=3D"margin:0=
+cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"wor=
+dsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o=
+:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-si=
+ze:11.0pt">Thanks &amp; Regards</span><o:p></o:p></p><p class=3D"wordsection1"=
+ style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Mandeep Singh</span><o:p>=
+</o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:=
+11.0pt">Assistant Manager (Purchase)</span><o:p></o:p></p><p class=3D"wordsect=
+ion1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></=
+o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11=
+.0pt">Allied JB Friction Pvt. Ltd.,</span><o:p></o:p></p><p class=3D"wordsecti=
+on1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">SP-2, 83 &amp; 84, Ne=
+w Industrial Complex,</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"ma=
+rgin:0cm"><span style=3D"font-size:11.0pt">Japanese Zone, Majrakath, Neemrana,=
+</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=
+=3D"font-size:11.0pt">Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705</span><o:p></o:p><=
+/p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt"=
+>Mob. +91 9587892371</span><o:p></o:p></p></div><p class=3D"wordsection1" styl=
+e=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nb=
+sp;</span><o:p></o:p></p><div><div style=3D"border:none;border-top:solid #E1E1=
+E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsection1" style=3D"margin:0c=
+m"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt">From:</span></b><span lang=
+=3D"EN-US" style=3D"font-size:11.0pt"> Shishir Gupta &lt;<a href=3D"mailto:sg@risu=
+sventures.com">sg@risusventures.com</a>&gt; <br><b>Sent:</b> 14 April 2022 2=
+2:02<br><b>To:</b> MANDEEP SINGH XMHJT/Mandeep SinghXMHJT &lt;<a href=3D"mailt=
+o:mandeep.singh.xmhjt@showadenko.com">mandeep.singh.xmhjt@showadenko.com</a>=
+&gt;<br><b>Cc:</b> VIKRAM SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ &lt;<a=
+ href=3D"mailto:vikram.singhrathore.xmtqq@showadenko.com">vikram.singhrathore.=
+xmtqq@showadenko.com</a>&gt;<br><b>Subject:</b> Re: NEW ORDER # AJFPO-22-000=
+156 for MAY=E2=80=9922</span><o:p></o:p></p></div></div><p class=3D"wordsection1" st=
+yle=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&=
+nbsp;</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span =
+style=3D"font-size:11.0pt;mso-fareast-language:EN-US">Dear Sir,</span><o:p></o=
+:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.=
+0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><p class=3D"wordse=
+ction1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-languag=
+e:EN-US">Please find attached PI for your order.</span><o:p></o:p></p><p cla=
+ss=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-farea=
+st-language:EN-US">&nbsp;</span><o:p></o:p></p><div><div><div><p class=3D"word=
+section1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Best regards,</s=
+pan><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"f=
+ont-size:11.0pt">Shishir Gupta</span><o:p></o:p></p><p class=3D"wordsection1" =
+style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></=
+p><p class=3D"wordsection1" style=3D"margin:0cm">Risus Ventures (OPC) Pvt. Ltd.,=
+<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">292, Ambica Vihar,=
+<o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">Delhi =E2=80=93 1100087<=
+o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm">&nbsp;<o:p></o:p></=
+p><p class=3D"wordsection1" style=3D"margin:0cm">Ph (M):&nbsp;&nbsp; +91 9810299=
+618<o:p></o:p></p></div></div></div><p class=3D"wordsection1" style=3D"margin:0c=
+m">Web:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href=3D"http://www.risusventures.com"=
+>www.risusventures.com</a><o:p></o:p></p><p class=3D"wordsection1" style=3D"marg=
+in:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</sp=
+an><o:p></o:p></p><div style=3D"border:none;border-top:solid #B5C4DF 1.0pt;pad=
+ding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsection1" style=3D"margin:0cm"><b><span =
+style=3D"font-size:12.0pt;color:black">From: </span></b><span style=3D"font-size=
+:12.0pt;color:black">&quot;Allied JB Purchase - Mr. Mandeep&quot; &lt;<a hre=
+f=3D"mailto:mandeep.singh.xmhjt@showadenko.com">mandeep.singh.xmhjt@showadenko=
+.com</a>&gt;<br><b>Date: </b>Thursday, 14 April 2022 at 16:44<br><b>To: </b>=
+Shishir Gupta &lt;<a href=3D"mailto:sg@risusventures.com">sg@risusventures.com=
+</a>&gt;<br><b>Cc: </b>&quot;Allied JB A - Purchase - Mr. Vikram Rathore&quo=
+t; &lt;<a href=3D"mailto:vikram.singhrathore.xmtqq@showadenko.com">vikram.sing=
+hrathore.xmtqq@showadenko.com</a>&gt;<br><b>Subject: </b>RE: NEW ORDER # AJF=
+PO-22-000156 for MAY=E2=80=9922</span><o:p></o:p></p></div><div><p class=3D"wordsect=
+ion1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></=
+o:p></p></div><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-s=
+ize:11.0pt;mso-fareast-language:EN-US">Dear Shishir San,</span><o:p></o:p></=
+p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;m=
+so-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><p class=3D"wordsection=
+1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-=
+US">Kindly acknowledge below mail order. Also share PI for timely payment pr=
+ocess.</span><o:p></o:p></p><div><p class=3D"wordsection1" style=3D"margin:0cm">=
+<span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"wordsec=
+tion1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p><=
+/o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:1=
+1.0pt">Thanks &amp; Regards</span><o:p></o:p></p><p class=3D"wordsection1" sty=
+le=3D"margin:0cm"><span style=3D"font-size:11.0pt">Mandeep Singh</span><o:p></o:=
+p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0=
+pt">Assistant Manager (Purchase)</span><o:p></o:p></p><p class=3D"wordsection1=
+" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p>=
+</p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt=
+">Allied JB Friction Pvt. Ltd.,</span><o:p></o:p></p><p class=3D"wordsection1"=
+ style=3D"margin:0cm"><span style=3D"font-size:11.0pt">SP-2, 83 &amp; 84, New In=
+dustrial Complex,</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin=
+:0cm"><span style=3D"font-size:11.0pt">Japanese Zone, Majrakath, Neemrana,</sp=
+an><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"fo=
+nt-size:11.0pt">Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705</span><o:p></o:p></p><=
+p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Mob=
+. +91 9587892371</span><o:p></o:p></p></div><p class=3D"wordsection1" style=3D"m=
+argin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;<=
+/span><o:p></o:p></p><div><div style=3D"border:none;border-top:solid #E1E1E1 1=
+.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"wordsection1" style=3D"margin:0cm"><=
+b><span lang=3D"EN-US" style=3D"font-size:11.0pt">From:</span></b><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt"> MANDEEP SINGH XMHJT/Mandeep SinghXMHJT <br><b=
+>Sent:</b> 13 April 2022 10:47<br><b>To:</b> 'Shishir Gupta' &lt;<a href=3D"ma=
+ilto:sg@risusventures.com">sg@risusventures.com</a>&gt;<br><b>Cc:</b> VIKRAM=
+ SINGHRATHORE XMTQQ/Vikram SinghrathoreXMTQQ &lt;<a href=3D"mailto:vikram.sing=
+hrathore.xmtqq@showadenko.com">vikram.singhrathore.xmtqq@showadenko.com</a>&=
+gt;<br><b>Subject:</b> NEW ORDER # AJFPO-22-000156 for MAY=E2=80=9922</span><o:p><=
+/o:p></p></div></div><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D=
+"font-size:11.0pt;mso-fareast-language:EN-US">&nbsp;</span><o:p></o:p></p><p=
+ class=3D"xmsonormal"><span style=3D"font-size:11.0pt">Dear Shishir San,</span><=
+o:p></o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:11.0pt">&nbsp;</s=
+pan><o:p></o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:11.0pt">Than=
+ks for your all-time support to AJF.</span><o:p></o:p></p><p class=3D"xmsonorm=
+al"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></p><p class=3D"xms=
+onormal"><span style=3D"font-size:11.0pt">Please find attached our new PO # AJ=
+FPO-22-000156 for MAY=E2=80=9922 ocean shipment (LCL). </span><o:p></o:p></p><p cl=
+ass=3D"xmsonormal"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></p>=
+<p class=3D"xmsonormal"><span style=3D"font-size:11.0pt">Kindly acknowledge the =
+receipt and provide us PI for timely processing of payment.</span><o:p></o:p=
+></p><p class=3D"xmsonormal"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p>=
+</o:p></p><p class=3D"xmsonormal"><span style=3D"font-size:11.0pt;color:black;ba=
+ckground:yellow">ETD: 11<sup>th </sup>MAY2022</span><o:p></o:p></p><p class=3D=
+"xmsonormal"><span style=3D"font-size:11.0pt">&nbsp;</span><o:p></o:p></p><p c=
+lass=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;=
+</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=
+=3D"font-size:11.0pt">Thanks &amp; Regards</span><o:p></o:p></p><p class=3D"word=
+section1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Mandeep Singh</s=
+pan><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"f=
+ont-size:11.0pt">Assistant Manager (Purchase)</span><o:p></o:p></p><p class=3D=
+"wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">&nbsp;</spa=
+n><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"fon=
+t-size:11.0pt">Allied JB Friction Pvt. Ltd.,</span><o:p></o:p></p><p class=3D"=
+wordsection1" style=3D"margin:0cm"><span style=3D"font-size:11.0pt">SP-2, 83 &am=
+p; 84, New Industrial Complex,</span><o:p></o:p></p><p class=3D"wordsection1" =
+style=3D"margin:0cm"><span style=3D"font-size:11.0pt">Japanese Zone, Majrakath, =
+Neemrana,</span><o:p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><s=
+pan style=3D"font-size:11.0pt">Distt =E2=80=93 Alwar, Rajasthan =E2=80=93 301705</span><o:=
+p></o:p></p><p class=3D"wordsection1" style=3D"margin:0cm"><span style=3D"font-siz=
+e:11.0pt">Mob. +91 9587892371</span><o:p></o:p></p><p class=3D"wordsection1" s=
+tyle=3D"margin:0cm"><span style=3D"font-size:11.0pt;mso-fareast-language:EN-US">=
+&nbsp;</span><o:p></o:p></p></div></body></html>
+
+--B_3734688101_4212230388--
+
+
+--B_3734688101_1609341825
+Content-type: image/png; name="image001.png";
+ x-mac-creator="4F50494D";
+ x-mac-type="504E4766"
+Content-ID: <image001.png@01D860B0.58C55E70>
+Content-disposition: inline;
+	filename="image001.png"
+Content-transfer-encoding: base64
+
+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
+KSoyqi7qUbRTdHF09yzWrORZ+2e9jvGPqYy5O9tqtnJ2Z6xqbFJsY+ybuIC4qriBeIf4RfGX
+EnQTJAntieTE2MQ9ieNzAudsmjOc5JpUlnRjruXcorkX5unOy553PFk1WZB8OIWYEpeyP+WD
+IEJQLxhP5aduTR0T8oSbhU9FvqKNolGxt7hKPJLmnVaV9jjdO31D+miGT0Z1xjMJT1IreZEZ
+krkj801WRNberM/ZcdktOZSclJyjUg1plrQr1zC3KLdPZisrkw3keeZtyhuTh8r35CP5c/Pb
+FWyFTNGjtFKuUA4WTC+oK3hbGFt4uEi9SFrUM99m/ur5IwuCFny9kLBQuLCz2Lh4WfHgIr9F
+uxYji1MXdy4xXVK6ZHhp8NJ9y2jLspb9UOJYUlXyannc8o5Sg9KlpUMrglc0lamUycturvRa
+uWMVYZVkVe9ql9VbVn8qF5VfrHCsqK74sEa45uJXTl/VfPV5bdra3kq3yu3rSOuk626s91m/
+r0q9akHV0IbwDa0b8Y3lG19tSt50oXpq9Y7NtM3KzQM1YTXtW8y2rNvyoTaj9nqdf13LVv2t
+q7e+2Sba1r/dd3vzDoMdFTve75TsvLUreFdrvUV99W7S7oLdjxpiG7q/5n7duEd3T8Wej3ul
+ewf2Re/ranRvbNyvv7+yCW1SNo0eSDpw5ZuAb9qb7Zp3tXBaKg7CQeXBJ9+mfHvjUOihzsPc
+w83fmX+39QjrSHkr0jq/dawto22gPaG97+iMo50dXh1Hvrf/fu8x42N1xzWPV56gnSg98fnk
+gpPjp2Snnp1OPz3Umdx590z8mWtdUV29Z0PPnj8XdO5Mt1/3yfPe549d8Lxw9CL3Ytslt0ut
+Pa49R35w/eFIr1tv62X3y+1XPK509E3rO9Hv03/6asDVc9f41y5dn3m978bsG7duJt0cuCW6
+9fh29u0XdwruTNxdeo94r/y+2v3qB/oP6n+0/rFlwG3g+GDAYM/DWQ/vDgmHnv6U/9OH4dJH
+zEfVI0YjjY+dHx8bDRq98mTOk+GnsqcTz8p+Vv9563Or59/94vtLz1j82PAL+YvPv655qfNy
+76uprzrHI8cfvM55PfGm/K3O233vuO+638e9H5ko/ED+UPPR+mPHp9BP9z7nfP78L/eE8/sl
+0p8zAAA6NGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78i
+IGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJh
+ZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5
+ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogICA8cmRmOlJERiB4bWxuczpy
+ZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAg
+ICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9
+Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmRjPSJo
+dHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICAgICAgICAgeG1sbnM6cGhv
+dG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgICAgICAg
+ICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAg
+ICAgICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9S
+ZXNvdXJjZUV2ZW50IyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2Jl
+LmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9i
+ZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90
+b3Nob3AgQ0MgMjAxNyAoV2luZG93cyk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHht
+cDpDcmVhdGVEYXRlPjIwMTctMDYtMDhUMTA6MzM6MDErMDI6MDA8L3htcDpDcmVhdGVEYXRl
+PgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxNy0wOC0wM1QxNTo0OTo0NiswMjowMDwv
+eG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXA6TWV0YWRhdGFEYXRlPjIwMTctMDgtMDNU
+MTU6NDk6NDYrMDI6MDA8L3htcDpNZXRhZGF0YURhdGU+CiAgICAgICAgIDxkYzpmb3JtYXQ+
+aW1hZ2UvcG5nPC9kYzpmb3JtYXQ+CiAgICAgICAgIDxwaG90b3Nob3A6Q29sb3JNb2RlPjM8
+L3Bob3Rvc2hvcDpDb2xvck1vZGU+CiAgICAgICAgIDxwaG90b3Nob3A6SUNDUHJvZmlsZT5z
+UkdCIElFQzYxOTY2LTIuMTwvcGhvdG9zaG9wOklDQ1Byb2ZpbGU+CiAgICAgICAgIDx4bXBN
+TTpJbnN0YW5jZUlEPnhtcC5paWQ6NDJlMDQyOGYtMGU4ZS0xZTQ0LWE5ZWMtOTlkZjgxMDhm
+MWRkPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD5hZG9i
+ZTpkb2NpZDpwaG90b3Nob3A6OTAwYzAxN2ItNzg1Mi0xMWU3LWJhMmEtZjU0ZTI3YzA4Yzdh
+PC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06T3JpZ2luYWxEb2N1bWVudElE
+PnhtcC5kaWQ6ZDJiNDlhYjgtOTc5ZC1mYjQ2LWI2MGUtNjg0NmNlZThlOGRhPC94bXBNTTpP
+cmlnaW5hbERvY3VtZW50SUQ+CiAgICAgICAgIDx4bXBNTTpIaXN0b3J5PgogICAgICAgICAg
+ICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNv
+dXJjZSI+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDphY3Rpb24+Y3JlYXRlZDwvc3RFdnQ6
+YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOmQy
+YjQ5YWI4LTk3OWQtZmI0Ni1iNjBlLTY4NDZjZWU4ZThkYTwvc3RFdnQ6aW5zdGFuY2VJRD4K
+ICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNy0wNi0wOFQxMDozMzowMSswMjow
+MDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+
+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpPC9zdEV2dDpzb2Z0d2FyZUFnZW50
+PgogICAgICAgICAgICAgICA8L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6
+cGFyc2VUeXBlPSJSZXNvdXJjZSI+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDphY3Rpb24+
+c2F2ZWQ8L3N0RXZ0OmFjdGlvbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0Omluc3RhbmNl
+SUQ+eG1wLmlpZDo0MmUwNDI4Zi0wZThlLTFlNDQtYTllYy05OWRmODEwOGYxZGQ8L3N0RXZ0
+Omluc3RhbmNlSUQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDp3aGVuPjIwMTctMDgtMDNU
+MTU6NDk6NDYrMDI6MDA8L3N0RXZ0OndoZW4+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpz
+b2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChXaW5kb3dzKTwvc3RFdnQ6
+c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmNoYW5nZWQ+Lzwvc3RF
+dnQ6Y2hhbmdlZD4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRm
+OlNlcT4KICAgICAgICAgPC94bXBNTTpIaXN0b3J5PgogICAgICAgICA8dGlmZjpPcmllbnRh
+dGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpYUmVzb2x1dGlvbj4x
+NTAwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1
+dGlvbj4xNTAwMDAwLzEwMDAwPC90aWZmOllSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpS
+ZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICAgICA8ZXhpZjpD
+b2xvclNwYWNlPjE8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGlt
+ZW5zaW9uPjEyMDwvZXhpZjpQaXhlbFhEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVs
+WURpbWVuc2lvbj4xNTA8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8L3JkZjpEZXNj
+cmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVu
+ZD0idyI/PsPTQzgAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/F
+RgAAQbxJREFUeNrsfWeUHOWV9lOxq6tzmJ48o9Eo5wRKZAkRJLAxuyRjvCSDMbaxDfa36wCs
+bWyDd72s1wYbvGADi8FmbRNtgoRAEijnMEozmpEmdqzurtQVvh9dVZqWRhOEJI+0uuf0kU5P
+dfXbdd8b3hueS9z31a9iOJGiKKivr0d1dTVkWT7p36frukvTtCmapo03DKOBAGpIiqogSTJK
+UVSIJEkPAbhMwASgGLqe0w0jZRhGXNf1DgBtFEk2UzS9nabprRRFGcPpedL4P0QEQUDTNFaS
+pLmqqi7yer2zWZadxPN8udfrhdfrhZvnwblccHEcSJIETdOgaRoURUFRFCiKAkPXoRYKUBUF
++XweuVwO+XweoigezOVyWw3DWM2y7N9Yll1NkqR5lsEnmam6rjOqqi4hgH8kSPKimpqaylAo
+hEwmg4mTJiEWi0HXdXAcBzfPQxAEZAXBYaooilAUBVVVVQgGgxAlCSRBgCBJmIaBQqEAWZYh
+5vM1QjZbk0wkrojH4w9lMpkDsiwvZVn2ZY7j/kqSJEzTPMvgE8VYVVXHi6L4eY7jbuZ5vtrr
+9eLyK66A3+8HALS0tKC5uRm5XA7ZbBYMw0DXNJAkCRAESJIESZLgXC6QBIEtW7agoqIClZWV
+MEkSUjbrXMewLKI8j8qqKpimiXw+j3Q6Xd/Z0XFrZ2fnrfF4fJ+u67/lef45hmFaThWjiTPN
+BhMEAUVR5omieLff7/9cTU0NauvrESsrQ0dHB2CamDxlCiiKAgDs3LEDPfE4pk6ZArVQQHdX
+F2rr6uD3+2GaJgiCcO7d2dmJ7du2gWEY8DyPhpEjoaoqGIaBqqrQNM25nqZpuFwu0DSNfD6P
+zo4OHDx4EAcPHtTz+fzTHo/nSZZlN51sRp8xDCYIAoVCYVIul/uO3++/fmRjI0aOHIloNApd
+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
+KIqqOHM42osy7V3ItHeB5fjB
+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
+RK5CYIIA
+--B_3734688101_1609341825--
+
+
+--B_3734688101_1444073538--
+

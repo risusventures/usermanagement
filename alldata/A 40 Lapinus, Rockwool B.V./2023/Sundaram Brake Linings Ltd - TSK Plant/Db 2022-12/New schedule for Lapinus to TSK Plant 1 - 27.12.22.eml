@@ -1,0 +1,270 @@
+Received: from MA0PR01MB9219.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:be::10)
+ by BM1PR01MB2882.INDPRD01.PROD.OUTLOOK.COM with HTTPS; Tue, 27 Dec 2022
+ 13:03:29 +0000
+Received: from MA1PR01CA0154.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::24)
+ by MA0PR01MB9219.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:be::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5944.16; Tue, 27 Dec
+ 2022 13:03:27 +0000
+Received: from MAXIND01FT003.eop-IND01.prod.protection.outlook.com
+ (2603:1096:a00:71:cafe::73) by MA1PR01CA0154.outlook.office365.com
+ (2603:1096:a00:71::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5944.17 via Frontend
+ Transport; Tue, 27 Dec 2022 13:03:27 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.214.169)
+ smtp.mailfrom=tvssbl.com; dkim=pass (signature was verified)
+ header.d=tvssbl.com;dmarc=bestguesspass action=none
+ header.from=tvssbl.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of tvssbl.com designates
+ 209.85.214.169 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.214.169; helo=mail-pl1-f169.google.com; pr=C
+Received: from mail-pl1-f169.google.com (209.85.214.169) by
+ MAXIND01FT003.mail.protection.outlook.com (10.13.142.95) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5944.17 via Frontend Transport; Tue, 27 Dec 2022 13:03:26 +0000
+Received: by mail-pl1-f169.google.com with SMTP id g16so3520004plq.12
+        for <sg@risusventures.com>; Tue, 27 Dec 2022 05:03:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tvssbl.com; s=google;
+        h=content-language:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=l/oiAi3gGMa7rrdTApieFuZzMactZEdA6y2R03IFHqk=;
+        b=YC+n4D/umgbeE8+/HvTbov2GPmsBudZ9qkaoyj80dY5rMEjoWKfqXWQklXCWH29Tbt
+         ltH/miF1iAuFegTJcQ4h9HLMn7S0z8OKBU30p9dtclLBG5QM/pgPS+mAJn88m1TF9hlb
+         hUhLsu42Uoei2cTpN62NfW/eecF+rt7iZQ1t4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-language:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l/oiAi3gGMa7rrdTApieFuZzMactZEdA6y2R03IFHqk=;
+        b=7alySG3gOtF9boyUVvg744dPBhvzBZj8jNHc3WJEjEkWaxPiUaVbrlV0rZENc/LwGN
+         UYbq8oufrbFAiFTz5+3PM0Hbqnc7oqzHvT6HWCy97cVm1nJoyWdxwhYDuhQjAwWIsjEE
+         BMIYf9RJsL2kWls88/jxt3qa4KTo8nGJ/kfPwNd8fFyJOwpwIkN/0eAKBoSGcsMI/HBw
+         WKrmFp17OnIf/EC9eP0dPNwfv9Bi5/woStNt3yqOzs4QF1r5SvKAJWgzc5SwC4fK0UBv
+         2G1PfTzfJWq4FPXpHBa050LIPSNJX1/KlXQNPXucyDiwUm9yYI1onymfa5UeV7LqwEBP
+         jbeg==
+X-Gm-Message-State: AFqh2kr4UYteWPh/YrE1Hr2o+EtTcRzmSDiFFvwf30bqtojmGJhxj5DG
+	lNkZARD9v0yKJTe9c9s3C1Y8Ds0FldCi2v3ki+9btLhV52cOHqW9aPzIp85EU/C5MG7uShflw3i
+	vo0HUzL5nc5cf4WLuHA==
+X-Google-Smtp-Source: AMrXdXsbpEfOejsRu7prIBl5Np1GB02YfQRo/TsFrptmFT0jfq8dPo4JVnsFPUIlhdZNWS5IY9Af2g==
+X-Received: by 2002:a17:902:9f8e:b0:191:4b88:9eeb with SMTP id g14-20020a1709029f8e00b001914b889eebmr24143932plq.25.1672146203825;
+        Tue, 27 Dec 2022 05:03:23 -0800 (PST)
+Return-Path: imports@tvssbl.com
+Received: from [172.20.10.89] ([106.51.99.6])
+        by smtp.gmail.com with ESMTPSA id y7-20020a17090322c700b00188a7bce192sm9067059plg.264.2022.12.27.05.03.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Dec 2022 05:03:23 -0800 (PST)
+Message-ID: <6b16d807-96dd-3426-f937-5e65f1e5402e@tvssbl.com>
+Date: Tue, 27 Dec 2022 18:33:17 +0530
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+From: Imports <imports@tvssbl.com>
+Subject: New schedule for Lapinus to TSK Plant 1 - 27.12.22
+To: Shishir Gupta <sg@risusventures.com>
+Cc: Mukundan S <mukund@tvssbl.com>, Risus Ventures <info@risusventures.com>
+Content-Type: multipart/alternative;
+ boundary="------------iQcWO7gprBU03mUxuNpN06aE"
+Content-Language: en-US
+X-MS-Exchange-Organization-ExpirationStartTime: 27 Dec 2022 13:03:26.4610
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 4bed30ea-8f1e-4932-fd7f-08dae80abe31
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: e434ffe4-3895-4b53-a704-9da6180d3438:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAXIND01FT003:EE_|MA0PR01MB9219:EE_
+X-MS-Exchange-Organization-AuthSource:
+ MAXIND01FT003.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 4bed30ea-8f1e-4932-fd7f-08dae80abe31
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:209.85.214.169;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:SFE;H:mail-pl1-f169.google.com;PTR:mail-pl1-f169.google.com;CAT:NONE;SFS:;DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Dec 2022 13:03:26.3360
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bed30ea-8f1e-4932-fd7f-08dae80abe31
+X-MS-Exchange-CrossTenant-Id: e434ffe4-3895-4b53-a704-9da6180d3438
+X-MS-Exchange-CrossTenant-AuthSource:
+ MAXIND01FT003.eop-IND01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB9219
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2360007
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5944.016
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:1;ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(820076)(250001)(410001)(930097);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?aXNScXRKRVpwRDZYcDNua0tmV3VWL0d0QkR4UG0vcFlnWG83cTlOZDJDTDdL?=
+ =?utf-8?B?MVRwUDVEZlJhY1VNUUdocVgvRzZNTnY3aUpPTWVKMDAzbFNHczdpWDlKY3RP?=
+ =?utf-8?B?MklPTjVBcDN6cGhsQVhLc2tkQnNxYW1IVExZSkhraWNJa2RYUml3cGN0TjRK?=
+ =?utf-8?B?Z0Z4NjNKQ3ZJNFo0aS9sODdmWnZVVGd4NVp0TjNoaGE2MXNML3BXQ2l4YlZ6?=
+ =?utf-8?B?UDIwdndUMnlMdkp4R2tiVlN4YVl2cWYwazMvVENNaVdmREV1MHV5L2phbll3?=
+ =?utf-8?B?eDB1ZThPRXJNS3QyM2dKc3N2TEtoNEtSd1JKaEptUU1WNVlYMjkwbXBNYjRl?=
+ =?utf-8?B?RHJEWXROcnhGZTVqVTV5aGpDL1grUEtoaDk0OXVqL1U2ZGk4bENGWmFYcnUx?=
+ =?utf-8?B?c2JIZ0RoUTBJUXB4YVp6dUJWMFJ3QUNSaVZUR0liYkxkc2FoYmFZRzZjWTJD?=
+ =?utf-8?B?M09odXVUenF6SU8rdTRFZTg4dnE2Q1MxSHNrZXJvb2MxMm93YTJqWG0rN0kx?=
+ =?utf-8?B?TU50b0pFdXdoaklaU2NKV3BkMGZocUpjbWpta29qd1RQcW96S2hsMThvUjFq?=
+ =?utf-8?B?M1RneW01alg3d25oWlZwcElmZjgwUWtRYk9EeVlOTjNyUEJ3MEdzdjhEZjRo?=
+ =?utf-8?B?OWE0SGtldEMxbjJGdEdkMitlTW1RSVIwUnRpaUtCQ3FVRGUvWjBEdkhkN3Ju?=
+ =?utf-8?B?K3gzc0g4THpxRFJSaUxaL0lsTVorYVQ0TGpQMW91R1lrZXljZ3F6TTlZVmc1?=
+ =?utf-8?B?NENmSGdSK3Q0Rng3TWZSVzMwZW84UFF6cFU2UWZtanJNQjRSRTZEYUhtMDBE?=
+ =?utf-8?B?R05xbFVmanlLeHM5dCtPNzU4emhXR2JmNFVKQThYcTBzMzVHZzNpWUVNVWkv?=
+ =?utf-8?B?NkVXRmV6Uk55eDBVUGdsSkdYcUJpY2xaQU04ckt2TlArN2ZaNVVYWnRpdGVh?=
+ =?utf-8?B?S05WRmJvcmVxRXVYa256U203ekRkcGFKeld0T203dEZvUUdJbzhja3QzNnNr?=
+ =?utf-8?B?OGczUGFpM0RlTFQvY3JVZVE2YXBJR1lnYVNSUmNwS000UWx0eVVmVWJSUVhM?=
+ =?utf-8?B?YUZLeDQvbVJsNERORmpzeUZtZ0pZQzU0NXRTTFEyK0VBU0U0Y2Y3dXhTcTFo?=
+ =?utf-8?B?Z1EwOXFPdUFhN3MvdFhjUDUyNnNGMVZIb1dWMFZJbUMreFdEYXhKOEhEaFRB?=
+ =?utf-8?B?UUZRaG1DbCtSWDZpZjU2ajUwR2tpejRNZy9WcEt3bUg4MXhIcENpYkJYWDlG?=
+ =?utf-8?B?Z1VQTEdONUVkZVc1WENxREs0Q3NxcTk4TTJkaUJZTjdFYk0xMUlQMEsrQU1w?=
+ =?utf-8?B?T1NxeEljM0s1YS9qRko5OFowTHdEMldlZ2cvZ1lCS2lDSHhHR0VMOVk2WXN0?=
+ =?utf-8?B?cGN3clEvdjJOUlBZd2hMQWUvUGVaRTd5V09tRmtCRFgyZ3ZkNHhZZEMwR21w?=
+ =?utf-8?B?OGpMS0JzOFdCb2FHQWR3aVFoajh6YzR2aFFoRmZRN1dBUmF6OXE4UlRjSWRN?=
+ =?utf-8?B?Q0xyTVNNZCt3TzlnUG5VY050YjMwN3FOL0I2cm5hMUt0UmdMWnBkREN0dER1?=
+ =?utf-8?B?TVd1TzJpTzhCWFRJeVdqR1pjY2U2UlY1WjF2UXpDM2crT1VoMmw3L3p4T1Vv?=
+ =?utf-8?B?QkQ1eVh6d0llbThZa1ozVFBoZ2ZCcVdna0dlcVN3RUttVmlScW5FVVgyT0Zr?=
+ =?utf-8?B?RkRtc2oySitDVHRnWFA2UHp0SG4ySzZoNE1ieTIva2pBNlVsdk1vNDN4dWRK?=
+ =?utf-8?B?Vmp5WnZNTjNhdVY4R2dITkg5K01JUHphTHZ1eGQ2UUlvSTNJNVoydUFISy9q?=
+ =?utf-8?B?aTU4dTVhUUNpM2ZSUUFtdVFGNUhteVJBVFNnb1RLaE1WdURhYU95ZnhjcjY2?=
+ =?utf-8?B?N1VWeXhOY2kvcll4ZkNRTlNocVZSR3hHbDZabk9ZRGlDVEo1NlBRL2NyWWNn?=
+ =?utf-8?B?cUIvVm15bnc3dVY1WUdSMzY5SzJtUGN6d1psdXh6WlliWnNoMks2RmJvWEhM?=
+ =?utf-8?B?d2pBL0wrbzlCYmJYblNYU2VJZ3E3VU9WWHpqUnF5RCtVcFN2WXhOREZNMTY5?=
+ =?utf-8?B?QzZTK0laNEI4Z0xXdjlCYzJ1ZFBKdXhqalZDR3BVVmVhNERLdTJWT1JHY3hj?=
+ =?utf-8?B?QnN5REgwU2pJUXREcm10NzVyYVkzSzB3TmM4NFkwKzNjSzgxbTNob09TWGJR?=
+ =?utf-8?B?NVFpL0VGL1hqU1M0Q3NoaTdTaGd6bFY0OTJxWG5DNVpDSVR5QUZvTGxQeUoz?=
+ =?utf-8?B?ZWF5OGF6c1Avb1pacnROS0prSGFFYVh2bDNtdWQ3T2YyUFlQeHI4VUNCVERy?=
+ =?utf-8?B?M0doS1dHZTJHTGRaT0VvdFVLbjhXYkt4WGJIMmZ3MmR4azF3TTF0WmxHYmpz?=
+ =?utf-8?Q?nJ1JgapoaY9CkaMY=3D?=
+MIME-Version: 1.0
+
+--------------iQcWO7gprBU03mUxuNpN06aE
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+
+Dear Mr Shishir Gupta,
+
+Thank you for your support always.
+
+We are releasing our new schedule for,
+
+1) SALM 0381 [RB220] -=C2=A0 6,000 Kgs
+2) SALM 0420 [RB250] - 15,625 Kgs
+
+In a 40 foot container to our TSK Plant 1 (Ex-Works).
+
+The material should be here in India by end Jan 23 hence we need to=20
+dispatch immediately.
+
+The invoice and other shipping documents should be raised on:
+****
+
+*_SHIPPING ADDRESS :
+_*
+Sundaram Brake Linings Limited,
+TSK Puram Plant 1
+Kanjamanaickenpatti,
+Mustakurichi P.O.
+Virudhunagar District - 626106
+
+Kindly confirm,awaiting your reply.
+
+Regards
+Harish.S
+
+--=20
+Sundaram Brake Linings Limited - The information contained in this=20
+communication may be confidential, is intended only for the use of the=20
+recipient named above or if improperly named, the intended recipient, and=
+=20
+may be legally privileged. If the reader of this message is not the=20
+intended recipient, you are hereby notified that any dissemination,=20
+distribution, or copying of this communication, or any of its contents, is=
+=20
+strictly prohibited. If you have received this communication in error,=20
+please re-send this communication to the sender and delete the original=20
+message and any copy of it from your computer system
+
+--------------iQcWO7gprBU03mUxuNpN06aE
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+  </head>
+  <body>
+    <div> <br>
+      <span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:black">=
+Dear
+        Mr Shishir Gupta,<br>
+        <br>
+        Thank you for your support always.<br>
+        <br>
+        We are releasing our new schedule for, <br>
+        <br>
+        1) SALM 0381 [RB220] -&nbsp; 6,000 Kgs<br>
+        2) SALM 0420 [RB250] - 15,625 Kgs<br>
+        <br>
+        In a 40 foot container to our TSK Plant 1 (Ex-Works). <br>
+      </span></div>
+    <div><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k"><font face=3D"Arial,sans-serif"><span lang=3D"EN-US"><br>
+          </span></font></span></div>
+    <div><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:blac=
+k"><font face=3D"Arial,sans-serif"><span lang=3D"EN-US">The material should
+            be here in India by end Jan 23 hence we need to dispatch
+            immediately.</span></font> <br>
+        <br>
+      </span><font size=3D"6" face=3D"Arial,sans-serif"><span style=3D"font=
+-size: 10pt; color: black;" lang=3D"EN-US">The
+          invoice and other shipping documents should be raised on:</span><=
+span style=3D"font-size: 10pt; color: black;" lang=3D"EN-US"></span></font>=
+<font face=3D"Times New Roman"><span style=3D"font-size: 10pt; color:
+          black;" lang=3D"EN-US"><br>
+        </span><b><span style=3D"font-size: 10pt; color: black;" lang=3D"EN=
+-US"></span></b><b><span style=3D"font-size: 10pt;
+            color: black;" lang=3D"EN-US"></span></b><span lang=3D"EN-US"><=
+/span></font><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:=
+black"></span>
+      <font face=3D"Times New Roman"> </font>
+      <p><font face=3D"Times New Roman"><span lang=3D"EN-US"></span></font>=
+</p>
+      <p><font face=3D"Times New Roman"><b><u><span lang=3D"EN-US">SHIPPING
+                ADDRESS :<br>
+              </span></u></b><span lang=3D"EN-US">&nbsp;<br>
+            Sundaram Brake Linings Limited,<br>
+            TSK Puram Plant 1<br>
+            Kanjamanaickenpatti,<br>
+            Mustakurichi P.O.<br>
+            Virudhunagar District - 626106</span></font></p>
+      <p><font face=3D"Times New Roman"><span lang=3D"EN-US">Kindly
+            confirm,awaiting your reply.<br>
+          </span></font></p>
+      <font face=3D"Times New Roman"><span lang=3D"EN-US">Regards</span><br=
+>
+        <span lang=3D"EN-US"></span><span lang=3D"EN-US">Harish.S</span></f=
+ont>
+    </div>
+    <span style=3D"color:black"><br>
+    </span>
+  </body>
+</html>
+
+<br>
+<font face=3D"Arial, Helvetica, sans-serif"><span style=3D"font-size:13px">=
+Sundaram Brake Linings Limited - The information contained in this communic=
+ation may be confidential, is intended only for the use of the recipient na=
+med above or if improperly named, the intended recipient, and may be legall=
+y privileged. If the reader of this message is not the intended recipient, =
+you are hereby notified that any dissemination, distribution, or copying of=
+ this communication, or any of its contents, is strictly prohibited. If you=
+ have received this communication in error, please re-send this communicati=
+on to the sender and delete the original message and any copy of it from yo=
+ur computer system</span></font>=
+
+--------------iQcWO7gprBU03mUxuNpN06aE--

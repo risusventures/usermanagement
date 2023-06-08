@@ -1,0 +1,283 @@
+@charset "utf-8";
+/******************************************************************************
+  $Chameleon v1.2 || CRUSADER12 || EXCLUSIVE TO CODECANYON
+  Core CSS File
+******************************************************************************/
+/* PREVENT HIGHLIGHTING, USE GPU WHEN POSSIBLE, AND RESET COMPONENTS */
+#cham_switcher, .cham_menuwrapper .cham_menuwrapper button {-moz-transform:transale3d(0,0,0);-o-transform:transale3d(0,0,0);-ms-transform:transale3d(0,0,0);-webkit-transform:transale3d(0,0,0);transform:transale3d(0,0,0);
+-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none; display:block; background:none; background-color:none; border:none; border-collapse:collapse; border-spacing:0; border-radius:0; color:inherit; font-weight:normal; font-size:100%; line-height:1px; box-sizing:border-box; padding:0; margin:0; vertical-align:baseline; outline:0; text-decoration:none; width:auto; height:auto; transition:none;}
+#cham_switcher, .cham_menuwrapper, .cham_menuwrapper li, .cham_menuwrapper a, .cham_top_ver, .cham_menuwrapper p, .cham_author { clear:none; border: 0 none; margin: 0; outline: 0 none; padding: 0; vertical-align: baseline; line-height:1px; }
+
+
+/******************************************************************************
+// DIMENSIONS
+/******************************************************************************/
+#cham_switcher { width:100%; height:40px; }
+.cham_menuwrapper { width:100%; max-width:190px; }
+.cham_menuwrapper button, img.cham_avatar { width:48px; height:45px; }
+.cham_menuwrapper button:after, img.cham_avatar:after { width:68%; height:5px; }
+.cham_menuwrapper .cham_menu { width:100%; }
+.cham_menuwrapper li, .cham_menuwrapper a, .cham_menuwrapper p, .cham_menuwrapper div {height:55px;}
+.cham_left, .cham_right {height:45px;}
+.cham_menuwrapper > .cham_submenu {	width: 100%; }
+.cham_thumb { width:35px; height:35px; }
+#cham_preview { width:590px; height:300px; min-width:590px; min-height:300px; }
+.cham_pointer { width:38px; height:38px; }
+.cham_right {width:500px;}
+.cham_author {height:45px;}
+
+
+/******************************************************************************
+// MEDIA QUERIES
+/******************************************************************************/
+/* SMARTPHONES */
+@media screen and (min-width: 240px) and (max-width : 480px) { .cham_left {display:none;} }
+/* IPADS */
+@media screen and (min-width : 768px) and (max-width : 1024px) { }
+/* DESKTOPS AND LAPTOPS ----------- */
+@media screen and (min-width : 1224px) {}
+/* LARGE SCREENS ----------- */
+@media screen and (min-width : 1824px) {}
+
+
+
+/******************************************************************************
+// CONTAINER STYLES
+/******************************************************************************/
+#cham_switcher { 
+	position:fixed; left:0; z-index:99999999; padding:0px; }
+#cham_switcher, p.cham_author, .cham_right {top:-45px; transition:all 0.75s cubic-bezier(0.035, 0.345, 0.000, 0.980);}
+.cham_menuwrapper {
+	float:left; position:relative; -webkit-perspective:1000px; perspective:1000px; overflow:visible;
+	-webkit-perspective-origin:50% 200%; perspective-origin:50% 200%; margin-top:-5px; z-index:99999;}
+.cham_menuwrapper:first-child { margin-right:100px; }
+.cham_menuwrapper button, img.cham_avatar {
+	border:none; overflow:hidden; position:relative; cursor:pointer; outline:none; margin-top:5px; margin-bottom:-5px;}
+.cham_menuwrapper button:after, img.cham_avatar:after {
+	z-index:999999999; content:''; position:absolute; top:10px; left:16%;}
+.cham_menuwrapper ul {
+	z-index:999999999; padding:0; list-style:none;	-webkit-transform-style:preserve-3d; transform-style:preserve-3d;}
+.cham_menuwrapper li { position: relative; margin:auto; cursor:pointer;}
+.cham_menuwrapper li a {
+	display:block; position:relative; padding:1px 20px 1px 20px; outline:none; cursor:pointer;}
+.cham_menuwrapper li.dl-back > a { padding-left:30px; }
+.cham_menuwrapper li.dl-back:after,
+.cham_menuwrapper li > a:not(:only-child):after {
+	z-index:999999999; position:absolute; top:0; speak:none; -webkit-font-smoothing:antialiased; content:"\e000";}
+.cham_menuwrapper li.dl-back:after {
+	left:10px; -webkit-transform:rotate(180deg); transform:rotate(180deg); }
+.cham_menuwrapper li > a:after { right:10px; } 
+.cham_menuwrapper .cham_menu {
+	margin:5px 0 0 0; position:absolute; z-index:99999999999999; opacity:0; pointer-events:none;
+	-webkit-transform:translateY(10px); transform:translateY(10px);
+	-webkit-backface-visibility:hidden;	backface-visibility:hidden; display:none;}
+.cham_menuopen {display:block!important;}
+.cham_submenu li a {padding:1px 20px;}	
+.cham_menuwrapper .cham_menu.cham_menu-toggle { transition: all 0.3s ease; }
+.cham_menuwrapper .cham_menu.cham_menuopen {
+	opacity:1; pointer-events:auto; -webkit-transform:translateY(0px); transform:translateY(0px); }
+/* Hide the inner submenus */
+.cham_menuwrapper li .cham_submenu, .cham_menu.dl-subview li, .cham_menu.dl-subview li.dl-subviewopen > a,
+.cham_menu.dl-subview li.dl-subview > a { display: none; }
+.cham_menu.dl-subview li.dl-subview, .cham_menu.dl-subview li.dl-subview .cham_submenu,
+.cham_menu.dl-subview li.dl-subviewopen, .cham_menu.dl-subview li.dl-subviewopen > .cham_submenu,
+.cham_menu.dl-subview li.dl-subviewopen > .cham_submenu > li { display: block; border:0; }
+/* Dynamically added submenu outside of the menu context */
+.cham_menuwrapper > .cham_submenu {
+	position:absolute; top:50px; left:0; margin:0;}
+/* Animation classes for moving out and in */
+.cham_menu.dl-animate-out-1 {
+	-webkit-animation:MenuAnimOut1 0.4s; animation:MenuAnimOut1 0.4s; }
+.cham_menu.dl-animate-out-2 {
+	-webkit-animation:MenuAnimOut2 0.3s ease-in-out; animation:MenuAnimOut2 0.3s ease-in-out;}
+.cham_menu.dl-animate-out-3 {
+	-webkit-animation: MenuAnimOut3 0.4s ease; animation: MenuAnimOut3 0.4s ease;}
+.cham_menu.dl-animate-out-4 {
+	-webkit-animation: MenuAnimOut4 0.4s ease; animation: MenuAnimOut4 0.4s ease;}
+.cham_menu.dl-animate-out-5 {
+	-webkit-animation: MenuAnimOut5 0.4s ease; animation: MenuAnimOut5 0.4s ease;}
+.cham_author {cursor:default; padding:0; position:fixed; left:52px; padding-top:28px;}
+.cham_thumb { float:left; margin-right:15px; margin-top:10px;}
+.cham_sub_name, .cham_price {padding:10px 8px; margin-top:-3px; margin-left:5px; border-radius:5px; float:right; }
+.cham_menuwrapper li.dl-back:after {margin-left:10px;}
+.cham_avatar { float:left;}
+.cham_top_ver {padding-right:15px; opacity:0.5;}
+#cham_preview { position:fixed; top:45px; left:195px; padding:0px 5px 5px 5px; z-index:999;}
+#cham_preview, #cham_preview img, #cham_preview:before, #cham_preview:after,
+#cham_switcher:before, #cham_switcher:after, #cham_switcher
+{box-sizing:content-box!important;}
+.cham_submenu li a {padding-left:25px;}
+.cham_pointer {transform:rotate(45deg); position:fixed; right:-20px; margin-top:-45px; visibility:hidden;}
+.cham_version { position:fixed; right:7px; margin-top:-50px;  }
+.cham_right { position:fixed; right:0; padding-right:3px;}
+.cham_right_text { margin-top:21px; text-align:right;}
+.cham_right_text a { padding:4px 20px 5px 20px; border-radius:0px; margin-right:2px;}
+
+
+
+
+
+/******************************************************************************
+// COLORS
+/******************************************************************************/
+/* PRIMARY COLOR */
+#cham_switcher, .cham_menuwrapper .cham_trigger { background:#e8e8e8; border-bottom:5px solid rgba(212,204,198,0.3); }
+.cham_menuwrapper button:hover,
+.cham_menuwrapper button.dl-active { background:rgba(212,204,198,0.3); }
+.cham_menuwrapper ul { background:#FFF; border-right:5px solid #f3f3f3; border-bottom:3px solid rgba(212,204,198,0.3);}
+.cham_menuwrapper button:after,
+.cham_menuwrapper img.cham_avatar:after,
+.cham_trigger:after { background:#4c4a54; box-shadow:0 10px 0 #4c4a54, 0 20px 0 #4c4a54; } 
+.no-touch .cham_menuwrapper li a:hover { background:#f3f3f3; color:#FFF; }
+.cham_menuwrapper li.dl-back > a { background:#eee; }
+.cham_menuwrapper li.dl-back:after { color:rgba(212,204,198,0.3); }
+.cham_menuwrapper li > a:after { color:rgba(0,0,0,0.15); }
+.no-js .cham_menuwrapper li > a:not(:only-child) {background:#000;}
+.cham_author, .cham_top_ver {color:#565d68;}
+.cham_menuwrapper li a { color:#565d68; border-bottom:2px solid #f3f3f3;}
+.cham_submenu li a:hover {color:#FFF;}
+.cham_menuwrapper li a:hover {color:#FFF;}
+.cham_menuwrapper li.dl-back a:hover {color:#434a54;}
+.cham_name span {color:#000;}
+.cham_menuwrapper li.dl-back:after {color:rgba(0, 0, 0, 0.15);}
+.cham_sub_name { color:#FFF!important; background:#000; }
+.cham_price {color:#959595;}
+.cham_version {color:#FFF;}
+#cham_preview {display:none; opacity:0; background-color:#f3f3f3;}
+.cham_pointer {background:inherit; box-shadow:2px -2px 0px #f3f3f3;}
+.cham_right_text a { color:#FFF; background:#4c4a54; }
+.cham_right_text a:hover {background-color:#959595; color:#FFF; }
+
+
+
+/******************************************************************************
+// FONTS
+/******************************************************************************/
+@font-face {font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal; font-style: normal;}
+.cham_menuwrapper button, img.cham_avatar { text-indent:-900em; }
+.cham_menuwrapper li a {
+	font-family: 'Oswald', sans-serif!important; font-size:17px; 
+	line-height:20px; font-weight:300; text-decoration:none; }
+.cham_submenu li a {line-height:50px;}
+.cham_right_text, .cham_support, .cham_purchase {line-height:1px; }
+.cham_menuwrapper li.dl-back:after {font-size:10px; line-height:25px; font-family:'icomoon'; }
+.cham_menuwrapper li > a:not(:only-child):after {line-height:50px; font-family: 'icomoon'; }
+.cham_author, .cham_top_ver { font-family:'Oswald', sans-serif;; font-size:12px; font-weight:normal;}
+.cham_top_ver {font-style:italic;}
+.cham_name {font-family: 'Oswald', sans-serif!important; font-size:17px; line-height:55px!important; cursor:pointer;}
+.cham_version {font-size:10px; font-weight:normal; text-style:italic; cursor:pointer;}
+.cham_sub_name {font-size:12px; line-height:7px;}
+.cham_price {text-align:right; font-size:15px; line-height:20px; padding-top:3px;}
+.cham_right_text a { text-decoration:none; font-size:16px; font-family:'Oswald',sans-serif; }
+
+
+
+/******************************************************************************
+// ANIMATIONS
+/******************************************************************************/
+.cham_visible {display:block!important; opacity:1!important;}
+@-webkit-keyframes MenuAnimOut1 {
+	0%{}50%{ -webkit-transform: translateZ(-250px) rotateY(30deg); 
+	}75%{ -webkit-transform: translateZ(-372.5px) rotateY(15deg); opacity: .5;
+	}100%{-webkit-transform: translateZ(-500px) rotateY(0deg); opacity: 0; }}
+@-webkit-keyframes MenuAnimOut2 {0%{}100%{-webkit-transform: translateX(-100%);opacity: 0;}}
+@-webkit-keyframes MenuAnimOut3 {0%{}100%{-webkit-transform: translateZ(300px); opacity: 0;}}
+@-webkit-keyframes MenuAnimOut4 {0%{}100%{-webkit-transform: translateZ(-300px); opacity: 0;}}
+@-webkit-keyframes MenuAnimOut5 {0%{}100%{-webkit-transform: translateY(40%);opacity: 0;}}
+@keyframes MenuAnimOut1 {
+	0%{}50%{-webkit-transform: translateZ(-250px) rotateY(30deg); transform: translateZ(-250px) rotateY(30deg);
+	}75%{-webkit-transform: translateZ(-372.5px) rotateY(15deg); transform: translateZ(-372.5px) rotateY(15deg); opacity: .5;
+	}100%{-webkit-transform: translateZ(-500px) rotateY(0deg); transform: translateZ(-500px) rotateY(0deg); opacity: 0;}}
+@keyframes MenuAnimOut2 {0%{}100% {-webkit-transform: translateX(-100%); transform: translateX(-100%); opacity:0;}}
+@keyframes MenuAnimOut3 {0%{}100%{-webkit-transform: translateZ(300px); transform: translateZ(300px); opacity: 0;}}
+@keyframes MenuAnimOut4 {0%{}100%{-webkit-transform: translateZ(-300px); transform: translateZ(-300px); opacity: 0;}}
+@keyframes MenuAnimOut5 {0%{}100%{-webkit-transform: translateY(40%); transform: translateY(40%); opacity: 0;}}
+.cham_menu.dl-animate-in-1 {-webkit-animation: MenuAnimIn1 0.3s; animation: MenuAnimIn1 0.3s;}
+.cham_menu.dl-animate-in-2 {-webkit-animation: MenuAnimIn2 0.3s ease-in-out; animation: MenuAnimIn2 0.3s ease-in-out;}
+.cham_menu.dl-animate-in-3 {-webkit-animation: MenuAnimIn3 0.4s ease; animation: MenuAnimIn3 0.4s ease;}
+.cham_menu.dl-animate-in-4 {-webkit-animation: MenuAnimIn4 0.4s ease; animation: MenuAnimIn4 0.4s ease;}
+.cham_menu.dl-animate-in-5 {-webkit-animation: MenuAnimIn5 0.4s ease; animation: MenuAnimIn5 0.4s ease;}
+@-webkit-keyframes MenuAnimIn1 {
+	0%{-webkit-transform: translateZ(-500px) rotateY(0deg); opacity: 0;
+	}20%{-webkit-transform: translateZ(-250px) rotateY(30deg); opacity: 0.5;
+	}100%{-webkit-transform: translateZ(0px) rotateY(0deg);	opacity: 1;}}
+@-webkit-keyframes MenuAnimIn2 {0%{-webkit-transform: translateX(-100%); opacity: 0;}100%{-webkit-transform: translateX(0px); opacity: 1;}}
+@-webkit-keyframes MenuAnimIn3 {0%{-webkit-transform: translateZ(300px); opacity: 0;}100%{-webkit-transform: translateZ(0px); opacity: 1;}}
+@-webkit-keyframes MenuAnimIn4 {0%{-webkit-transform: translateZ(-300px); opacity: 0;}100%{-webkit-transform: translateZ(0px); opacity: 1;}}
+@-webkit-keyframes MenuAnimIn5 {0%{-webkit-transform: translateY(40%); opacity: 0;}100%{-webkit-transform: translateY(0); opacity: 1;}}
+@keyframes MenuAnimIn1 {
+	0%{-webkit-transform: translateZ(-500px) rotateY(0deg);	transform: translateZ(-500px) rotateY(0deg); opacity: 0;
+	}20%{-webkit-transform: translateZ(-250px) rotateY(30deg); transform: translateZ(-250px) rotateY(30deg);opacity: 0.5;
+	}100%{-webkit-transform: translateZ(0px) rotateY(0deg); transform: translateZ(0px) rotateY(0deg);opacity: 1;}}
+@keyframes MenuAnimIn2 {
+	0%{-webkit-transform: translateX(-100%); transform: translateX(-100%); opacity: 0; 
+	}100%{-webkit-transform: translateX(0px); transform: translateX(0px); opacity:1;}}
+@keyframes MenuAnimIn3 {
+	0%{-webkit-transform: translateZ(300px); transform: translateZ(300px); opacity: 0;
+	}100%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;}}
+@keyframes MenuAnimIn4 {
+	0%{-webkit-transform: translateZ(-300px); transform: translateZ(-300px); opacity: 0;
+	}100%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;}}
+@keyframes MenuAnimIn5 {
+	0%{-webkit-transform: translateY(40%); transform: translateY(40%);	opacity: 0;
+	}100%{-webkit-transform: translateY(0);transform: translateY(0);opacity: 1;}}
+.cham_menuwrapper > .cham_submenu.dl-animate-in-1 {-webkit-animation: SubMenuAnimIn1 0.4s ease; animation: SubMenuAnimIn1 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-in-2 {-webkit-animation: SubMenuAnimIn2 0.3s ease-in-out; animation: SubMenuAnimIn2 0.3s ease-in-out;}
+.cham_menuwrapper > .cham_submenu.dl-animate-in-3 {-webkit-animation: SubMenuAnimIn3 0.4s ease; animation: SubMenuAnimIn3 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-in-4 {-webkit-animation: SubMenuAnimIn4 0.4s ease; animation: SubMenuAnimIn4 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-in-5 {-webkit-animation: SubMenuAnimIn5 0.4s ease;	animation: SubMenuAnimIn5 0.4s ease;}
+@-webkit-keyframes SubMenuAnimIn1 {0%{-webkit-transform: translateX(50%);opacity: 0;}100%{-webkit-transform: translateX(0px); opacity: 1;}}
+@-webkit-keyframes SubMenuAnimIn2 {0%{-webkit-transform: translateX(100%); opacity: 0;}100%{-webkit-transform: translateX(0px); opacity: 1;}}
+@-webkit-keyframes SubMenuAnimIn3 {0%{-webkit-transform: translateZ(-300px); opacity: 0;}100%{-webkit-transform: translateZ(0px);opacity: 1;}}
+@-webkit-keyframes SubMenuAnimIn4 {0%{-webkit-transform: translateZ(300px); opacity: 0;}100%{-webkit-transform: translateZ(0px);opacity: 1;}}
+@-webkit-keyframes SubMenuAnimIn5 {0%{-webkit-transform: translateZ(-200px);opacity: 0;}100%{-webkit-transform: translateZ(0);opacity: 1;}}
+@keyframes SubMenuAnimIn1 {
+	0%{-webkit-transform: translateX(50%);transform: translateX(50%);opacity: 0;
+	}100%{-webkit-transform: translateX(0px);transform: translateX(0px);opacity: 1;}}
+@keyframes SubMenuAnimIn2 {
+	0%{-webkit-transform: translateX(100%);transform: translateX(100%);opacity: 0;
+	}100%{-webkit-transform: translateX(0px);transform: translateX(0px);opacity: 1;}}
+@keyframes SubMenuAnimIn3 {
+	0%{-webkit-transform: translateZ(-300px);transform: translateZ(-300px);opacity: 0;
+	}100%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;}}
+@keyframes SubMenuAnimIn4 {
+	0%{-webkit-transform: translateZ(300px);transform: translateZ(300px);opacity: 0;
+	}100%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;	}}
+@keyframes SubMenuAnimIn5 {
+	0%{-webkit-transform: translateZ(-200px);transform: translateZ(-200px);opacity: 0;
+	}100%{-webkit-transform: translateZ(0);transform: translateZ(0);opacity: 1;}}
+.cham_menuwrapper > .cham_submenu.dl-animate-out-1 {-webkit-animation: SubMenuAnimOut1 0.4s ease;animation: SubMenuAnimOut1 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-out-2 {-webkit-animation: SubMenuAnimOut2 0.3s ease-in-out;animation: SubMenuAnimOut2 0.3s ease-in-out;}
+.cham_menuwrapper > .cham_submenu.dl-animate-out-3 {-webkit-animation: SubMenuAnimOut3 0.4s ease;animation: SubMenuAnimOut3 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-out-4 {-webkit-animation: SubMenuAnimOut4 0.4s ease;animation: SubMenuAnimOut4 0.4s ease;}
+.cham_menuwrapper > .cham_submenu.dl-animate-out-5 {-webkit-animation: SubMenuAnimOut5 0.4s ease;animation: SubMenuAnimOut5 0.4s ease;}
+@-webkit-keyframes SubMenuAnimOut1 {0%{	-webkit-transform: translateX(0%);opacity: 1;}100%{-webkit-transform: translateX(50%);opacity: 0;}}
+@-webkit-keyframes SubMenuAnimOut2 {0%{-webkit-transform: translateX(0%);opacity: 1;}100%{-webkit-transform: translateX(100%);opacity: 0;}}
+@-webkit-keyframes SubMenuAnimOut3 {0%{-webkit-transform: translateZ(0px);opacity: 1;}100%{-webkit-transform: translateZ(-300px);opacity: 0;}}
+@-webkit-keyframes SubMenuAnimOut4 {0%{-webkit-transform: translateZ(0px);opacity: 1;}100%{-webkit-transform: translateZ(300px);opacity: 0;}}
+@-webkit-keyframes SubMenuAnimOut5 {0%{-webkit-transform: translateZ(0);opacity: 1;}100%{-webkit-transform: translateZ(-200px);opacity: 0;}}
+@keyframes SubMenuAnimOut1 {
+	0%{-webkit-transform: translateX(0%);transform: translateX(0%);opacity: 1;
+	}100%{-webkit-transform: translateX(50%);transform: translateX(50%);opacity: 0;}}
+@keyframes SubMenuAnimOut2 {
+	0%{-webkit-transform: translateX(0%);transform: translateX(0%);opacity: 1;
+	}100%{-webkit-transform: translateX(100%);transform: translateX(100%);opacity: 0;}}
+@keyframes SubMenuAnimOut3 {
+	0%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;
+	}100%{-webkit-transform: translateZ(-300px);transform: translateZ(-300px);opacity: 0;}}
+@keyframes SubMenuAnimOut4 {
+	0%{-webkit-transform: translateZ(0px);transform: translateZ(0px);opacity: 1;
+	}100%{-webkit-transform: translateZ(300px);transform: translateZ(300px);opacity: 0;}}
+@keyframes SubMenuAnimOut5 {
+	0%{	-webkit-transform: translateZ(0);transform: translateZ(0);opacity: 1;
+	}100%{-webkit-transform: translateZ(-200px);transform: translateZ(-200px);opacity: 0;}}
+.no-js .cham_menuwrapper .cham_menu {position:relative;	opacity: 1;	-webkit-transform: none; transform: none;}
+.no-js .cham_menuwrapper li .cham_submenu {display: block;}
+.no-js .cham_menuwrapper li.dl-back {display: none;}
+.no-js .cham_menuwrapper li > a:not(:only-child):after {content: '';}

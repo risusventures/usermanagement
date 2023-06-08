@@ -1,0 +1,63 @@
+<?php  error_reporting(0);
+defined('BASEPATH') OR exit('No direct Script Access Allowed..');
+
+class Ajax extends CI_Controller{
+            public function __construct() {
+            parent::__construct();
+            $this->load->model(array('product_model','profile_model','search_model'));
+            $this->load->library(array('form_validation','session','upload','email'));
+            $this->load->helper(array('url','html','form'));
+            $this->load->library('calendar');
+        }
+        
+        public function getprincipalcontact(){
+            $all_response=array();
+            $all_response['status']="true";
+            $data=array();
+            if(isset($_REQUEST['pid'])) {
+                $all=$_REQUEST['pid'];
+                foreach($all as $pid){
+                $res=array();
+                $ee="select * from principal_contacts where pid='$pid'";
+                $principal_contacts=$this->db->query($ee)->result_array();
+                $principal_contactshtml="";
+                if(!empty($principal_contacts)) {
+                    $principal_contactshtml.="<select class='form-control' name='principal_contacts[$pid]'>";
+                    foreach($principal_contacts as $contacts){
+                        $principal_contactshtml.="<option value='{$contacts['id']}'>{$contacts['name']}</option>";
+//                        $principal_contactshtml.="<div class='checkbox'><label><input type='hidden' class='principal_contacts_email principal_contacts_email{$contacts['id']} ' /><input type='checkbox' name='principal_contacts[]' class='principal_contacts principal_contacts{$contacts['id']}' value='{$contacts['id']}'>{$contacts['name']} </label></div>";
+                        
+                    }
+                    $principal_contactshtml.="</select>";
+                }
+             
+                $res['principal_contactshtml']=$principal_contactshtml;
+                
+                $customers_principal_assigned_html="";
+                
+                $ee="select * from customers_principal_assigned where pid='$pid' group by cid";
+                $customers_principal_assigned=$this->db->query($ee)->result_array();
+                if(!empty($customers_principal_assigned)){
+                   
+                    foreach($customers_principal_assigned as $c_p_a){
+                        $c="select * from customers where customer_id='{$c_p_a['cid']}'";
+                        $customerdata=$this->db->query($c)->row_array();                        
+                        $customers_principal_assigned_html.="<div class='checkbox'><label><input type='checkbox' onclick='get_products({$customerdata['customer_person']})' name='principal_contacts' class='customers_principal_assigned customers_principal_assigned{$c_p_a['cid']}' value='{$c_p_a['id']}'>{$customerdata['customer_person']} </label></div>";
+                        
+                    }
+                     
+                }
+                $res['customers_principal_assigned_html']=$customers_principal_assigned_html;
+               $res['pid']=$pid;
+                $data[]=$res;
+                
+                }
+                
+            }
+            $all_response['data']=$data;
+            echo json_encode($all_response); die;
+            
+        }
+  
+}
+  ?>

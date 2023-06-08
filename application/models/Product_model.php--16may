@@ -1,0 +1,524 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+ class product_model extends CI_Model {
+
+     function __construct(){
+        parent::__construct();
+    $this->load->library('session');
+        $this->load->database();
+}
+ public function addproduct_model($data){
+ $this->db->insert('add_products',$data);
+ return TRUE;
+}
+
+public function view_product_model($id){
+$query=$this->db->query("select * from add_products INNER JOIN category ON add_products.product_group=category.ci_id where id='$id'");
+return $query;
+}
+public function delete_product_id($id){
+if($sql=$this->db->query("delete from add_products where id='$id'"))
+{return true;}
+}
+public  function edit_product_model($id){
+$query = $this->db->query("select * from add_products where id='$id'");
+return $query;
+}
+public function update_product_model($id,$data){
+$this->db->where('id', $id);
+$this->db->update('add_products', $data);
+}
+public function show_category_model($user_id){
+$query=$this->db->query("select * from category where seller_id='$user_id' ");
+if($query->num_rows() > 0){
+foreach ($query->result() as $row) {
+$data[] = $row;}
+return $data;
+  }
+}
+public function manageproduct_model($id){
+$session_data = $this->session->userdata('logged_in');
+$data['user_id']= $session_data['user_id'];
+extract($data);
+if($id == NULL ){
+$data = $this->db->query("select * from add_products where seller_id='$user_id' ");
+//$query = $this->db->query("select * from add_products");
+$query=$data->result_array();
+return $query;
+} else{
+$data=$this->db->query("select * from add_products where product_group='".$id."'");
+$query =$data->result_array();
+return $query;
+  }
+ }
+
+public function category_product($id){
+$query=$this->db->query("select * from category where seller_id='$id' ");
+$data=$query->result_array();
+return $data;
+}
+
+public function bussiness_model($data) {
+$this->db->insert('bussiness_profile',$data);
+return TRUE;
+ }
+
+public function about_model($data){
+$this->db->insert('about_profile',$data);
+return TRUE;
+ }
+
+public function managecategory_model($user_id){
+    // $sql=$this->db->get("category");
+$sql=$this->db->query("select * from category where seller_id='$user_id'  order by ci_id DESC  ");
+if($sql->num_rows()>0){
+foreach($sql->result() as $row){
+$data[] = $row;
+}
+return $data;
+}
+  }
+
+ public function delete_category_model($id){
+   //$this->db->where('ci_id',$id);
+    //$sql = $this->db->delete('category');
+if($this->db->delete('category', array('ci_id' => $id)) &&  $this->db->delete('add_products', array('product_group' => $id))){
+    return true;}
+}
+
+public function edit_category_id($id){
+$query=$this->db->query("select * from category where ci_id='$id'");
+$data=$query->result_array();
+return $data;}
+
+public function update_category_model($id,$data){
+$this->db->where('ci_id', $id);
+$this->db->update('category', $data);
+}
+
+
+
+/*public function insert_file_csv($records){
+$data=$this->db->insert('order_sheet',$records);
+return true;
+}*/
+  public function insert_file_csv($data){
+      if($data['productName'])
+      {
+    $m_id = $data['seller_id'];
+    foreach ($data["productName"] as $d) {
+      $content[] = array(
+        'productName'      => $d['productName'],
+        'seller_id'        =>  $m_id
+      );
+    }
+    if($this->db->insert_batch('order_sheet',$content)){
+      return TRUE;
+    }
+      }
+      else{ return false; }
+  }
+
+
+
+
+public function order_model($user_id){
+$query=$this->db->query("select * from order_sheet where seller_id='$user_id'");
+$data=$query->result_array();
+return $data;
+}
+
+public function add_order_model($data2){
+$query2=$this->db->insert('invoice',$data2);
+return true;
+}
+
+public function list_order_model($user_id){
+$query = $this->db->query("select * from invoice left join customers on invoice.customer_id=customers.customer_id where invoice.seller_id='$user_id' order by id desc ");
+$data = $query->result_array();
+return $data;
+}
+
+public function payment_view($user_id){
+$query = $this->db->query("select * from payment where seller_id='$user_id'");
+$data = $query->result_array();
+return $data;
+}
+
+public function add_payment_model($data){
+extract($data);
+$invoice_id =$invoice_id;
+$payment = $this->db->query("select sum(invoice_paid_amount) as total_payment from payment where invoice_id='$invoice_id'");
+$result_payment =$payment->result_array();
+$total_amount = $this->db->query("select sum(Total_amount) as total_amount from invoice where id='$invoice_id'");
+$result_total_amount =$total_amount->result_array();
+if(($result_total_amount[0]['total_amount'] == $result_payment[0]['total_payment']) || ($result_total_amount[0]['total_amount'] > $result_payment[0])){
+return false;
+}
+else{
+$query = $this->db->insert('payment',$data);
+return true;
+}
+
+
+}
+
+
+public function print_payment_model($id){
+$query = $this->db->query("select * from invoice left join payment on invoice.id=payment.invoice_id  left join customers on customers.customer_id=invoice.customer_id where payment_id='$id' ");
+$data =$query->result_array();
+return $data;
+}
+
+
+public function company_profile_order($user_id){
+$query = $this->db->query("select * from company_profile where seller_id='$user_id'");
+$data =$query->result_array();
+return $data;
+}
+
+public function view_invoice_model($id){
+/*$sql= "select * from invoice left join order_sheet on order_sheet.invoice_no=invoice.invoice_no
+ left join customers on customers.customer_id=invoice.customer_id
+ left join payment on payment.invoice_id=invoice.id
+ where id='$id'";*/
+
+$sql = "select invoice.event_venue,invoice.event_time,invoice.num_guest,invoice.party_date,customers.customer_id,customers.customer_person,invoice.id,invoice.sales_person,invoice.status,invoice.note,invoice.invoice_no,invoice.tax,invoice.tax_amount,invoice.invoice_date,invoice.party_date,invoice.sub_total,invoice.Total_amount,invoice.veg_item,invoice.non_veg_item,customers.customer_company,customers.customer_address,customers.customer_phone,customers.customer_email,order_sheet.productName,order_sheet.quantity,order_sheet.buyPrice,order_sheet.amount,order_sheet.filter,invoice.packing_forwarding from invoice left join order_sheet on order_sheet.invoice_no=invoice.invoice_no
+ left join customers on customers.customer_id=invoice.customer_id
+ where id='$id'";
+$query = $this->db->query($sql);
+$data =$query->result_array();
+return $data;
+}
+
+public function invoice_veg($id)
+{
+    $query=$this->db->query("select * from invoice where id='$id' ");
+$data=$query->result_array();
+return $data;
+}
+
+
+
+
+
+public function delete_invoice_model($id){
+
+if($query=$this->db->query("delete from order_sheet where invoice_no='$id'") && $query = $this->db->query("delete from invoice where invoice_no='$id'"))
+{return true;}
+
+}
+
+public function invoice_paid_model($id){
+$sql ="select invoice_paid_amount from payment where invoice_id='$id'";
+$query = $this->db->query($sql);
+$data = $query->result_array();
+return $data;
+}
+
+
+public function profile($seller_id){
+$query = $this->db->query("select * from company_profile where seller_id='$seller_id'  order by cp_id DESC limit 1" );
+$data=$query->result_array();
+return $data;
+}
+
+
+public function delete_payment_model($id){
+if($sql=$this->db->query("delete from payment where payment_id='$id'"))
+{return true;}
+}
+
+public function getProduct($page){
+        $offset = 6*$page;
+        $limit = 6;
+        $sql = "select * from add_products where seller_id='151' limit $offset ,$limit";
+        $result = $this->db->query($sql)->result();
+        return $result;
+  }
+
+
+public function add_customer_model($data){
+//$query = $this->db->insert('customers',$data);
+//return true;
+$email  = $this->input->post('customer_email');
+$phone = $this->input->post('customer_phone');
+$query  =  $this->db->query("SELECT * FROM customers WHERE customer_email = '$email' AND customer_phone= '$phone' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('customers',$data);
+return true;
+}
+}
+
+
+
+
+
+public function list_customer_model($user_id){
+$query =$this->db->query("select * from customers where seller_id='$user_id' order by customer_id desc");
+//$query=$this->db->query("select * from customers left join invoice on customers.customer_id=invoice.customer_id where customers.seller_id='$user_id' limit 1");
+$data=$query->result_array();
+return $data;
+}
+
+public function delete_customer_model($id){
+$query =$this->db->query("delete from customers where customer_id='$id'");
+return true;
+}
+
+public function edit_customer_model($id){
+$query = $this->db->query("select * from customers where customer_id='$id'");
+$data = $query->result_array();
+return $data;
+}
+
+public function update_customer_model($id,$data){
+$this->db->where('customer_id',$id);
+$this->db->update('customers',$data);
+}
+
+public function invoice_status_model($id,$data){
+$this->db->where('id',$id);
+$this->db->update('invoice',$data);
+}
+
+public function detail_customer_model($id,$user_id){
+$query=$this->db->query("select  customers.customer_id,customers.customer_company, customers.customer_email, customers.customer_phone, (SELECT count(invoice.customer_id) FROM invoice WHERE customer_id='$id' ) as customer_count ,(SELECT sum(invoice.Total_amount) FROM invoice WHERE customer_id='$id' ) as total_Sales_customers ,(select count(invoice.status) from invoice where customer_id='$id' and status='paid') as customer_paid,(select count(invoice.status) from invoice where customer_id='$id'and status='pending') as customer_pending ,(select count(invoice.status) from invoice where customer_id='$id' and status='due') as customer_due ,(select count(invoice.status) from invoice where customer_id='$id' and status='canceled') as customer_canceled,invoice.invoice_no,invoice.id,invoice.invoice_date,invoice.Total_amount,invoice.status,invoice.id,invoice.sub_total,invoice.tax,invoice.sales_person from customers left join invoice on customers.customer_id=invoice.customer_id
+  where customers.customer_id='$id' and customers.seller_id='$user_id'");
+$data=$query->result_array();
+return $data;
+}
+
+public function customer_paid_amount($id,$user_id){
+$paid =$this->db->query("SELECT  SUM(invoice_paid_amount) as total_customer_paid FROM payment WHERE seller_id = '$user_id'  and customer_id='$id' ");
+$paid_amount_customer=$paid->result_array();
+return $paid_amount_customer;
+}
+
+
+public function add_tracking_model($data){
+$query =$this->db->insert('order_tracking',$data);
+return true;
+}
+
+
+public function order_track_model($id){
+$query =$this->db->query("delete from order_tracking where order_id='$id'");
+return true;
+}
+
+public function result_order_model($data){
+extract($data);
+if($month_report=='3' || $month_report=='6' || $month_report=='12'){
+$query = $this->db->query("select invoice.invoice_no,invoice.invoice_date,customers.customer_company,invoice.Total_amount ,invoice.status,invoice.sales_person from invoice left join customers  on  invoice.customer_id = customers.customer_id where on_date >= now()-interval '$month_report' month and invoice.seller_id='$user_id' and status='$status' ");
+$data = $query->result_array();
+}elseif($month_report=='current'){
+$query = $this->db->query("select invoice.invoice_no,invoice.invoice_date,customers.customer_company,invoice.Total_amount ,invoice.status,invoice.sales_person from invoice left join customers  on  invoice.customer_id = customers.customer_id where MONTH(on_date) = MONTH(CURDATE()) and invoice.seller_id='$user_id' and status='$status' ");
+$data = $query->result_array();
+}else{
+$query = $this->db->query("select invoice.invoice_no,invoice.invoice_date,customers.customer_company,invoice.Total_amount ,invoice.status,invoice.sales_person from invoice left join customers  on  invoice.customer_id = customers.customer_id where on_date between date_sub(now(),INTERVAL 1 WEEK) and now() and invoice.seller_id='$user_id' and status='$status' ");
+$data = $query->result_array();
+}
+return $data;
+}
+
+
+
+public function update_order_model($id,$items = array())
+	{
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'0'))) {
+
+		if($this->db->insert_batch('order_sheet', $items)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public function update_order_model_cold($id,$cold_items = array())
+	{
+	    
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'3'))) {
+
+		if($this->db->insert_batch('order_sheet', $cold_items)) {
+				return true;
+			}
+		}else{ $this->db->insert_batch('order_sheet', $cold_items); return true;}
+		return false;
+	}
+   
+   	public function update_order_model_desert($id,$desert_items = array())
+	{
+	   
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'4'))) {
+
+		if($this->db->insert_batch('order_sheet', $desert_items)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public function update_order_model_other($id,$other_items = array())
+	{
+	   
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'5'))) {
+
+		if($this->db->insert_batch('order_sheet',$other_items)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	   	public function update_order_model_non_veg($id,$non_veg_items = array())
+	{
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'2'))) {
+
+		if($this->db->insert_batch('order_sheet', $non_veg_items)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+		   	public function update_order_model_veg($id,$veg_items = array())
+	{
+		if($this->db->delete('order_sheet', array('invoice_no' => $id,'filter' =>'1'))) {
+
+		if($this->db->insert_batch('order_sheet', $veg_items)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+public function list_items($id){
+$query = $this->db->query("select * from item_list");
+$data = $query->result_array();
+return $data;
+}
+
+public function item_veg($id){
+$query = $this->db->query("select * from item_veg");
+$data = $query->result_array();
+return $data;
+}
+
+public function item_non_veg($id){
+$query = $this->db->query("select * from item_non_veg");
+$data = $query->result_array();
+return $data;
+}
+
+public function item_list($id){
+$query = $this->db->query("select * from item_list");
+$data = $query->result_array();
+return $data;
+}
+
+public function delete_item_model($id){
+$query =$this->db->query("delete from item_list where id='$id'");
+return true;
+}
+
+public function add_item_model($data,$item){
+$query  =  $this->db->query("SELECT * FROM item_list WHERE item_name = '$item' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('item_list',$data);
+return true;
+}
+}
+
+
+public function delete_item_veg_model($id){
+$query =$this->db->query("delete from item_veg where veg_id='$id'");
+return true;
+}
+
+public function add_item_veg_model($data,$item){
+$query  =  $this->db->query("SELECT * FROM item_veg WHERE veg_id = '$item' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('item_veg',$data);
+return true;
+}
+}
+
+
+public function delete_item_non_veg_model($id){
+$query =$this->db->query("delete from item_non_veg where non_veg_id='$id'");
+return true;
+}
+
+
+public function add_item_non_veg_model($data,$item){
+$query  =  $this->db->query("SELECT * FROM item_non_veg WHERE non_veg_id = '$item' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('item_non_veg',$data);
+return true;
+}
+}
+
+public function drink_item_list($id){
+$query = $this->db->query("select * from drink_item_list");
+$data = $query->result_array();
+return $data;
+}
+
+public function delete_drinkitem_model($id){
+$query =$this->db->query("delete from drink_item_list where id='$id'");
+return true;
+}
+
+public function add_drinkitem_model($data,$item){
+$query  =  $this->db->query("SELECT * FROM drink_item_list WHERE item_name = '$item' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('drink_item_list ',$data);
+return true;
+}
+}
+
+public function desert_item_list($id){
+$query = $this->db->query("select * from desserts_item_list");
+$data = $query->result_array();
+return $data;
+}
+
+public function delete_desertitem_model($id){
+$query =$this->db->query("delete from desserts_item_list where id='$id'");
+return true;
+}
+
+public function add_desertitem_model($data,$item){
+$query  =  $this->db->query("SELECT * FROM desserts_item_list WHERE item_name = '$item' ");
+$queryResult = $query->result_array();
+$foundRows = count($queryResult);
+if($foundRows >= 1) {
+ return false;
+} else {
+$query = $this->db->insert('desserts_item_list',$data);
+return true;
+}
+}
+
+}?>
