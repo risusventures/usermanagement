@@ -897,9 +897,9 @@ class product_model extends CI_Model
             $image = end($exp);
             $imageName = '';
             if ($error == 0) {
-                $ran = $this->generateRandomString(5);
+                $ran = $this->generateRandomString(10);
 //                $imageName=$ran.time().$i.".".$image;
-                $imageName = $name;
+                $imageName = date("Y-m-d_H:i:s__") . $name;
                 // echo '/httpdocs/usermanagement/uploads/orders/'.$imageName; echo '<br>';
                 //  echo $tmp_name;
                 echo $imageName;
